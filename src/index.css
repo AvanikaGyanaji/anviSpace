@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Custom Font Families From Files */
+@font-face {
+  font-family: 'YourFontName';
+  src: url('your_cdn_url/yourfont.woff2') format('woff2'),
+    url('your_cdn_url/yourfont.woff') format('woff');
+  /* Add other formats if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Shinko sans', sans-serif;
+}
+
+body {
+  width: 100vw;
+  background-color: #131313;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #555;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #333;
+}
+
+#root {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  background-color: #161616;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+}
+
+/* ====================================== */
+/* header */
+/* header{
+  position: fixed;
+} */
+header li,
+header a {
+  transition: all 0.2s 0s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.currentPageLink {
+  border-color: #eee;
+}
+
+header li:hover:not(.currentPageLink),
+header a:hover:not(.currentPageLink) {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px #eee;
+}
