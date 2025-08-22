@@ -4,13 +4,15 @@ import "../IntroStyle.css";
 const IntroWebEffect = () => {
   const [showIntro, setShowIntro] = useState(true);
 
-  // disable [intro-web-container] after 5 seconds
+  // disable [intro-web-container] after 6 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
     }, 6000);
 
-    return () => clearTimeout(timer); // cleanup on unmount
+    return () => {
+      clearTimeout(timer); // cleanup on unmount
+    };
   }, []);
 
   if (!showIntro) return null; // remove completely

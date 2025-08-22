@@ -63,6 +63,7 @@
 
 .intro-web-img img {
   object-fit: contain;
+  max-width: 400px;
   z-index: 900;
   position: fixed;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
@@ -130,8 +131,8 @@
   }
 
   80% {
-    transform: translate(0vw, -22vh);
-    max-width: 300px;
+    transform: translate(0vw, -30vh);
+    max-width: 400px;
     opacity: 1;
   }
 
