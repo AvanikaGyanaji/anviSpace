@@ -12,11 +12,10 @@
   border-radius: 12px;
   z-index: 1;
   backdrop-filter: blur(8px); /* frosted glass */
-  
   /* Glassmorphism style */
   /* background: rgba(17, 17, 17, 0.6); */
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  /* backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%); */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   /* overflow: hidden; */
 }

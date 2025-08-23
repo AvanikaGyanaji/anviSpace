@@ -79,10 +79,19 @@ header a:hover:not(.currentPageLink) {
 
 /* ========================== */
 /* HOME */
+.explore-btn{
+  background-color: #00000060 !important;
+}
 .pillars-li {
   cursor: pointer;
 }
-
+.pillars-box ul {
+  width: 96vw !important;
+  background-color: #000 !important;
+}
+.coming-soon-btn{
+  background-color: #000 !important;
+}
 .pillars-li-p {
   background: linear-gradient(261deg, #111 0.62%, rgba(62, 61, 61, 0.10) 99.38%);
   background-color: #000000;
@@ -113,12 +122,16 @@ header a:hover:not(.currentPageLink) {
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
-    filter: brightness(0.4);
+    filter: brightness(0.2);
   }
   &::before, &::after{
     padding: 3.2px !important;
   }
-
+  label{
+    font-family: inter, 'sans-serif' !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }
   input,
   textarea {
     padding-inline: 10px;
@@ -126,7 +139,7 @@ header a:hover:not(.currentPageLink) {
     font-weight: 400;
     font-size: 14px;
     font-family: inter, sans-serif;
-    background-color: #111111;
+    background-color: #050505 !important;
     border: 0.5px solid #999999;
     border-radius: 8px;
   }

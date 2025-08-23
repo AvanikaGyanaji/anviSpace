@@ -1,6 +1,6 @@
 const Footer = () => (
-  <footer className="mt-20 p-3 pb-5 flex flex-col justify-center align-middle">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-gray-800 pt-12 text-gray-400 text-sm px-3 md:px-6 sm:px-12">
+  <footer className="p-3 pt-20 pb-5 flex flex-col justify-center align-middle bg-black">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-t border-gray-900 pt-12 text-white text-sm px-3 md:px-6 sm:px-12">
       <div className="space-y-6 flex flex-col justify-between">
         <img
           src="/logos/anvi-space.png"

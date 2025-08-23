@@ -141,7 +141,7 @@ const Home = () => {
           <h1 className="text-[28px] text-[#FEFEFE] font-[400] uppercase tracking-[2px]">
             Independent. Intelligent. Interplanetary.
           </h1>
-          <p className="text-[12px] text-[#FEFEFE] px-5 tracking-[1px] font-[inter]">
+          <p className="text-[16px] max-w-[750px] m-auto text-[#FEFEFE] px-5 tracking-[1px] font-[inter] font-[300]">
             “We build modular robotic systems from debris removal to intelligent
             rovers powering our mission, SPACE KARKANA for sustainable space
             exploration”
@@ -164,9 +164,9 @@ const Home = () => {
         <div className="pillars-box w-full py-8 pt-20 px-2 text-center h-full flex flex-col justify-center align-middle gap-5">
           <h3 className="text-[28px] tracking-[2px] uppercase">our pillars</h3>
           <ul
-            className="figma-btn rounded-[32px] w-full max-w-[90vw] md:max-w-[800px] lg:max-w-[1000px] min-h-[400px] aspect-[4/3] md:aspect-auto m-0 py-2 px-3 md:px-5 flex justify-center align-middle gap-[50px]
+            className="figma-btn rounded-[32px] w-full max-w-[90vw] md:max-w-[1320px] min-h-[400px] aspect-[4/3] md:aspect-auto m-0 py-2 px-3 md:px-5 flex justify-evenly align-middle gap-[50px]
               border-1 bg-gradient-[92.48deg, #111111 0.36%, #FEFEFE 99.64%]"
-            style={{ width: "90vw" }}
+            style={{ width: "90vw"}}
           >
             {Object.keys(anviSectionList).map((each, index) => (
               <li
@@ -214,7 +214,7 @@ const Home = () => {
             className="w-full max-w-[900px]"
           />
           <button
-            className="explore-btn figma-btn py-2 px-[20px] border-2 rounded-[8px] tracking-[4px] cursor-pointer hover:scale-102 text-[24px] font-[400] mt-5 text-white uppercase transition-all duration-150"
+            className="coming-soon-btn figma-btn py-2 px-[20px] border-2 rounded-[8px] tracking-[4px] cursor-pointer hover:scale-102 text-[24px] font-[400] mt-5 text-white uppercase transition-all duration-150"
             style={{
               border: "2px solid #111",
               // background: "linear-gradient(270deg, #161616 0%, #7C7C7C 100%)",
@@ -389,7 +389,7 @@ const Home = () => {
                 name="name"
                 placeholder="Your name"
                 required
-                className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+                className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
               />
             </label>
             <label className="w-full">
@@ -399,7 +399,7 @@ const Home = () => {
                 name="email"
                 placeholder="your.email@gmail.com"
                 required
-                className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+                className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
               />
             </label>
 
@@ -453,14 +453,14 @@ const Home = () => {
               <textarea
                 name="message"
                 placeholder="Message"
-                rows="4"
+                rows="6"
                 required
-                className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition resize-none"
+                className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition resize-none"
               ></textarea>
             </label>
             <button
               type="submit"
-              className="mt-3 hover:from-cyan-700 hover:via-blue-700 hover:to-blue-800 text-white font-semibold py-2 rounded-lg shadow-lg transition"
+              className="mt-3 font-[inter] text-[16px] hover:from-cyan-700 hover:via-blue-700 hover:to-blue-800 text-white font-semibold py-2 rounded-lg shadow-lg transition"
             >
               Submit
             </button>
