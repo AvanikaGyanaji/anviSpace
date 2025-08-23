@@ -65,35 +65,6 @@ const Home = () => {
   const servicesRef = useRef([]);
 
   // GSAP for Hero Section BG
-  // useEffect(() => {
-  //   const tl = gsap.timeline({
-  //     onComplete: () => {
-  //       introRef.current.style.display = "block";
-  //     },
-  //   });
-
-  //   // Step 1: Fade in + scale bump
-  //   tl.fromTo(
-  //     introRef.current,
-  //     { opacity: 0, scale: 1, rotate: 0 },
-  //     { opacity: 1, scale: 1.1, rotate: 2, duration: 1.2, ease: "power3.in" }
-  //   );
-
-  //   // Step 2: Stay still for 6s (just a delay)
-  //   tl.to(introRef.current, { opacity: 0,duration: 5 });
-
-  //   // Step 3: Scale out + rotate + fade out
-  //   tl.to(introRef.current, {
-  //     opacity: 1,
-  //     scale: 1.2,
-  //     rotate: 5,
-  //     duration: 4,
-  //     // repeat: -1,
-  //     // yoyo: true,
-  //     ease: "power1.out",
-  //   });
-  // }, []);
-
   useEffect(() => {
     const tl = gsap.timeline({
       onComplete: () => {
