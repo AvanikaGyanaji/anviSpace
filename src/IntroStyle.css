@@ -52,7 +52,7 @@
   position: absolute;
   background-color: black;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-  animation: Fade 1.5s ease-in-out 1s 1 normal forwards;
+  animation: Fade 5.5s ease-in-out 1s 1 normal forwards;
   opacity: 1;
   /* display: none; */
 }
@@ -80,9 +80,9 @@
   }
 
   99% {
-    box-shadow: 0 -20px 120px 30px #fafafa63;
-    -webkit-box-shadow: 0 -20px 120px 30px #fafafa63;
-    -moz-box-shadow: 0 -20px 120px 30px #fafafa63;
+    box-shadow: 0 -20px 120px 30px #fafafa90;
+    -webkit-box-shadow: 0 -20px 120px 30px #fafafa90;
+    -moz-box-shadow: 0 -20px 120px 30px #fafafa90;
     opacity: 1;
   }
 
@@ -102,15 +102,9 @@
     visibility: visible;
     display: block;
   }
-
-  90% {
-    opacity: 0;
-  }
-
   100% {
     opacity: 0;
     visibility: hidden;
-    display: none;
   }
 }
 

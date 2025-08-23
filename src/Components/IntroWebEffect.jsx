@@ -12,6 +12,7 @@ const IntroWebEffect = () => {
 
     return () => {
       clearTimeout(timer); // cleanup on unmount
+      document.body.style.overflowY = "auto"
     };
   }, []);
 

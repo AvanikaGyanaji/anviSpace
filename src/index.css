@@ -77,7 +77,6 @@ header a:hover:not(.currentPageLink) {
 
 
 
-
 /* ========================== */
 /* HOME */
 .pillars-li {
@@ -85,12 +84,11 @@ header a:hover:not(.currentPageLink) {
 }
 
 .pillars-li-p {
-  font-size: 16px;
-  background: linear-gradient(261deg, #111 0.62%, rgba(62, 61, 61, 9.10) 99.38%);
+  background: linear-gradient(261deg, #111 0.62%, rgba(62, 61, 61, 0.10) 99.38%);
   background-color: #000000;
   /* backdrop-filter:; */
   opacity: 0;
-  box-shadow: 0 0 20px 2px #454545;
+  box-shadow: 0 0 20px 2px #151515;
   transition: all 0.3s 0s ease-in-out;
 }
 
@@ -109,10 +107,17 @@ header a:hover:not(.currentPageLink) {
 
 /* Contact Section  */
 .contact-section form {
-  background-image: url('/images/contact-formBg.jpg');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
+  padding: 50px !important;
+  .form-Bgimg{
+    background-image: url('/images/contact-formBg.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    filter: brightness(0.4);
+  }
+  &::before, &::after{
+    padding: 3.2px !important;
+  }
 
   input,
   textarea {

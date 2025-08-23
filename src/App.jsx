@@ -7,8 +7,27 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 import Home from "./Pages/Home";
+import { useEffect } from "react";
 
 const App = () => {
+
+  useEffect(() => {
+  const mainEl = document.querySelector("main");
+  if (mainEl) {
+    // lock scroll immediately
+    document.body.style.overflowY = "hidden";
+
+    // restore scroll after 6s
+    const timer = setTimeout(() => {
+      document.body.style.overflowY = "auto";
+    }, 6000);
+
+    // cleanup on unmount
+    return () => clearTimeout(timer);
+  }
+}, []);
+
+
   return (
     <BrowserRouter>
       <IntroWebEffect />
