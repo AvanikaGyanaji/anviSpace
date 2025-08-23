@@ -4,17 +4,45 @@ import "../IntroStyle.css";
 const IntroWebEffect = () => {
   const [showIntro, setShowIntro] = useState(true);
 
-  // disable [intro-web-container] after 6 seconds
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowIntro(false);
-    }, 6000);
+  // Step 1: Lock scroll + fix height on mount
+  document.body.style.height = "100vh";
+  document.body.style.overflowY = "hidden";
+  window.scrollTo(0, 0);
 
-    return () => {
-      clearTimeout(timer); // cleanup on unmount
-      document.body.style.overflowY = "auto"
-    };
-  }, []);
+  const heroSection = document.querySelector(".hero-section"); // ✅ class selector
+  if (heroSection) {
+    heroSection.style.opacity = 0;
+    heroSection.style.transition = "opacity 1s ease-in-out"; // ✅ add smooth fade
+  }
+
+  // Step 2: Hide intro after 8s (keep scroll locked)
+  const introTimer = setTimeout(() => {
+    setShowIntro(false);
+    window.scrollTo(0, 0);
+  }, 6000);
+
+  // Step 3: Fade in hero + restore scroll after 9s
+  const scrollTimer = setTimeout(() => {
+    if (heroSection) {
+      heroSection.style.opacity = 1; // ✅ fade in
+    }
+    document.body.style.height = "auto";
+    document.body.style.overflowY = "auto";
+  }, 6100);
+
+  // Cleanup
+  return () => {
+    clearTimeout(introTimer);
+    clearTimeout(scrollTimer);
+    document.body.style.height = "auto";
+    document.body.style.overflowY = "auto";
+    window.scrollTo(0, 0);
+    if (heroSection) heroSection.style.opacity = 1;
+  };
+}, []);
+
+
 
   if (!showIntro) return null; // remove completely
 

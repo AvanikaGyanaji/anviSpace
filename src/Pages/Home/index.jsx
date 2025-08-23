@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 const anviSectionList = {
@@ -59,6 +59,16 @@ const services = [
 ];
 
 const Home = () => {
+  const [fileName, setFileName] = useState("Add File");
+
+  const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFileName(e.target.files[0].name);
+    } else {
+      setFileName("Add File");
+    }
+  };
+
   const introRef = useRef(null);
   const formRef = useRef(null);
   const headlineRef = useRef(null);
@@ -87,7 +97,7 @@ const Home = () => {
       opacity: 1,
       scale: 1.2,
       rotate: 5,
-      duration: 3,
+      duration: 6,
       // repeat: -1,
       // yoyo: true,
       ease: "power1.out",
@@ -99,7 +109,7 @@ const Home = () => {
       {/* Home - Hero Section   */}
       <section
         id="home"
-        className="hero-section p-2 section1 w-full h-screen overflow-y-hidden bg-[#05080a] relative grid place-items-center overflow-hidden font-[Shinko Sans]"
+        className="hero-section section1 w-full h-screen overflow-y-hidden bg-[#05080a] relative grid place-items-center overflow-hidden font-[Shinko Sans]"
       >
         <div
           ref={introRef}
@@ -120,7 +130,7 @@ const Home = () => {
           <a
             href="#pillars"
             target=""
-            className="explore-btn figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[34px] font-[400] mt-[20vh] text-white uppercase transition-all duration-150"
+            className="explore-btn animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[34px] font-[400] mt-[20vh] text-white uppercase transition-all duration-150"
           >
             Explore
           </a>
@@ -137,7 +147,7 @@ const Home = () => {
           <ul
             className="figma-btn rounded-[32px] w-full max-w-[90vw] md:max-w-[1320px] min-h-[400px] aspect-[4/3] md:aspect-auto m-0 py-2 px-3 md:px-5 flex justify-evenly align-middle gap-[50px]
               border-1 bg-gradient-[92.48deg, #111111 0.36%, #FEFEFE 99.64%]"
-            style={{ width: "90vw"}}
+            style={{ width: "90vw" }}
           >
             {Object.keys(anviSectionList).map((each, index) => (
               <li
@@ -346,7 +356,7 @@ const Home = () => {
           <form
             ref={formRef}
             className="w-full figma-btn max-w-[500px] overflow-hidden mt-8 mb-15 rounded-[12px] p-[50px] text-left mx-auto flex flex-col gap-[16px] space-y-5 border-1 border-[#FEFEFE]"
-            style={{ width: "100%" }}
+            style={{ width: "100%", cursor: "auto" }}
             onSubmit={(e) => {
               e.preventDefault();
               alert("Form submitted!");
@@ -375,7 +385,7 @@ const Home = () => {
             </label>
 
             {
-              <label className="w-full">
+              <label className="w-max">
                 <span className="text-gray-300 text-sm block mb-1">
                   Upload your CV
                 </span>
@@ -386,8 +396,10 @@ const Home = () => {
                     type="file"
                     id="fileUpload"
                     name="file"
+                    accept=".pdf,.doc,.docx"
                     required
                     className="hidden"
+                    onChange={handleFileChange}
                   />
 
                   {/* Custom input look */}
@@ -411,9 +423,12 @@ const Home = () => {
                       />
                     </svg>
 
-                    {/* Placeholder-like text */}
-                    <span id="fileName" className="text-[14px] text-[#999] font-[inter] font-[400]">
-                      Add File
+                    {/* Placeholder / File name */}
+                    <span
+                      id="fileName"
+                      className="text-[14px] text-[#999] font-[inter] font-[400]"
+                    >
+                      {fileName}
                     </span>
                   </label>
                 </div>
