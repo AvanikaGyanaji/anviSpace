@@ -46,7 +46,7 @@ const Header = () => {
       <link rel="preload" as="image" href="/logos/anvi-space.png" />
       <nav className="flex justify-center align-middle">
         {/* Desktop Nav */}
-        <ul className="nav-ul m-0 p-0 flex justify-center align-middle gap-4 md:gap-[24px]">
+        <ul className="nav-ul flex max-md:hidde m-0 p-0 justify-center align-middle gap-4 md:gap-[24px]">
           {Object.keys(pagesLinksList)
             .splice(0, 5)
             .map((pageKey) => (
@@ -63,7 +63,10 @@ const Header = () => {
                 <a href={pagesLinksList[pageKey]} target="">{pageKey}</a>
               </li>
             ))}
-        </ul>
+        </ul>  
+
+        {/* Mobile Menu */}
+        
       </nav>
       {/* <Link
         to={pagesLinksList["Contact Us"]}
@@ -75,7 +78,7 @@ const Header = () => {
       <a
         href={pagesLinksList["Contact Us"]}
         target=""
-        className={`${currentPageStyle(pagesLinksList[5])}`}
+        className={`${currentPageStyle(pagesLinksList[5])} max-md:hidde`}
       >
         {Object.keys(pagesLinksList)[5]}
       </a>
