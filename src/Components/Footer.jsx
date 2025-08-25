@@ -28,7 +28,7 @@ const Footer = () => (
           className="flex justify-center align-middle gap-3 place-items-center"
         >
           <span className="font-semibold text-gray-100">
-            <Mail />
+            <Mail size={18} />
           </span>
           <span className="hover:underline text-gray-300">info@anvi.co</span>
         </a>
@@ -37,7 +37,7 @@ const Footer = () => (
           className="flex justify-center align-middle gap-3 place-items-center"
         >
           <span className="font-semibold text-gray-100">
-            <Phone />
+            <Phone size={18} />
           </span>
           <span>+91**********</span>
         </Link>
@@ -47,7 +47,7 @@ const Footer = () => (
           className="flex justify-center align-middle gap-3 place-items-center"
         >
           <span className="font-semibold text-gray-100 self-start">
-            <MapPin />
+            <MapPin size={18} />
           </span>
           <span>
             Profound Builders, Whitefields, Kondapur, Telangana 500081.
@@ -63,21 +63,21 @@ const Footer = () => (
 
         <Link
           to=""
-          className="hover:underline h-max flex justify-start align-middle gap-3"
+          className="hover:underline h-max text-[12px] place-items-center flex justify-start align-middle gap-3 underline-offset-5"
         >
-          <Facebook /> Facebook
+          <Facebook size={18} /> Facebook
         </Link>
         <Link
           to=""
-          className="hover:underline h-max flex justify-start align-middle gap-3"
+          className="hover:underline h-max text-[12px] place-items-center flex justify-start align-middle gap-3 underline-offset-5"
         >
-          <Linkedin /> Linkedin
+          <Linkedin size={18} /> Linkedin
         </Link>
         <Link
           to=""
-          className="hover:underline h-max flex justify-start align-middle gap-3"
+          className="hover:underline h-max text-[12px] place-items-center flex justify-start align-middle gap-3 underline-offset-5"
         >
-          <Instagram /> Instagram
+          <Instagram size={18} /> Instagram
         </Link>
       </div>
 
@@ -92,7 +92,7 @@ const Footer = () => (
         Contact US
       </a>
     </div>
-    <p className="text-center text-white mt-10">&copy; 2015 Anvi.co</p>
+    <p className="text-center text-white mt-10">&copy; 2015 anvispace.co</p>
   </footer>
 );
 
