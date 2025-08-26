@@ -98,7 +98,8 @@ header a:hover:not(.currentPageLink) {
   /* backdrop-filter:; */
   opacity: 0;
   box-shadow: 0 0 20px 2px #151515;
-  transition: all 0.3s 0s ease-in-out;
+  /* border: none; */
+  transition: all 0.4s 0s ease-in-out;
 }
 
 .pillars-li-p::first-letter {

@@ -47,6 +47,7 @@ const Header = () => {
       <img
         src="/logos/anvi-space.png"
         alt="anvi-space logo"
+        loading="eager"
         className="w-full max-w-[120px] max-md:max-w-[100px] object-cover text-sm"
       />
       <link rel="preload" as="image" href="/logos/anvi-space.png" />
@@ -62,10 +63,6 @@ const Header = () => {
                   pagesLinksList[pageKey]
                 )}`}
               >
-                {/* For Link Pages */}
-                {/* <Link to={pagesLinksList[pageKey]} className="text-md">
-                  {pageKey}
-                </Link> */}
                 <a
                   href={pagesLinksList[pageKey]}
                   onClick={(e) => {
@@ -125,20 +122,25 @@ const Header = () => {
           </div>
         )}
       </nav>
-      {/* <Link
-        to={pagesLinksList["Contact Us"]}
-        className={`${currentPageStyle(pagesLinksList[5])}`}
-      >
-        {Object.keys(pagesLinksList)[5]}
-      </Link> */}
 
+      {/* Contact Us Link */}
       <a
         href={pagesLinksList["Contact Us"]}
         target=""
         className={`${currentPageStyle(pagesLinksList[5])} max-md:hidden`}
+        onClick={(e) => {
+          e.preventDefault();
+          const targetId = pagesLinksList["Contact Us"].replace("#", "");
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
       >
         {Object.keys(pagesLinksList)[5]}
       </a>
+
+      {/* Mobile Menu Button */}
       <button
         className="hidden max-md:block mr-4 cursor-pointer"
         onClick={updateMobileMenuOpen}

@@ -68,7 +68,8 @@ const Footer = () => (
           <Facebook size={18} /> Facebook
         </Link>
         <Link
-          to=""
+          to="https://www.linkedin.com/company/anvispace/"
+          target="_blank"
           className="hover:underline h-max text-[12px] place-items-center flex justify-start align-middle gap-3 underline-offset-5"
         >
           <Linkedin size={18} /> Linkedin
