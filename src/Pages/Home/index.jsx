@@ -195,7 +195,7 @@ const Home = () => {
         id="pillars"
         className="pillars-section relative z-2 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="pillars-box w-full py-8 pt-20 px-2 text-center h-full flex flex-col justify-center align-middle gap-5">
+        <div className="pillars-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle gap-5">
           <h3 className="text-[28px] tracking-[2px] uppercase">our pillars</h3>
           <ul
             className="figma-btn rounded-[32px] w-full max-w-[90vw] md:max-w-[1320px] min-h-[400px] aspect-[4/3] md:aspect-auto m-0 py-2 px-3 md:px-5 flex justify-evenly align-middle gap-[50px]
@@ -230,7 +230,7 @@ const Home = () => {
         id="missions"
         className="missions-section relative z-2 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="missions-box w-full py-8 pt-20 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div className="missions-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
           <h3 className="text-[28px] font-[400] text-white tracking-[2px] uppercase">
             our mission
           </h3>
@@ -265,7 +265,7 @@ const Home = () => {
         id="products"
         className="products-section relative z-2 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="products-box w-full py-8 pt-20 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div className="products-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
           <h3 className="text-[28px] font-[400] text-white tracking-[2px] uppercase">
             our products
           </h3>
@@ -349,7 +349,7 @@ const Home = () => {
         id="services"
         className="services-section pt-15 relative z-9 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="services-box w-full py-8 pt-20 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div className="services-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
           <h3
             className="text-[28px] pb-10 font-[400] text-white tracking-[2px] uppercase"
             ref={headlineRef}
@@ -394,7 +394,7 @@ const Home = () => {
         id="contact"
         className="contact-section relative z-2 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="contact-box w-full py-8 pt-20 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div className="contact-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
           <h3 className="text-[28px] font-[400] text-white tracking-[2px] uppercase">
             JOIN US IN REVOLUTIONIZING SPACE ROBOTICS
           </h3>

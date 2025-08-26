@@ -56,8 +56,10 @@ const IntroWebEffect = () => {
                 <img
                   src="/logos/anvi-space.png"
                   alt="intro-web-img"
+                  loading="eager"
                   className="w-full max-w-[300px]"
                 />
+                <link rel="preload" as="image" href="/logos/anvi-space.png" />
               </div>
             </div>
           </div>

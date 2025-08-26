@@ -4,7 +4,8 @@ export const pagesLinksList = {
     'Missions': '#missions',
     'Products': '#products',
     'Services': '#services',
-    'Contact Us': '#contact',
+    'Contact Us': '#contact'
+
     // 'Home': '/',
     // 'Products': '/products',
     // 'Missions': '/missions',
