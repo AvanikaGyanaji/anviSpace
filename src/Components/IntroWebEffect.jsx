@@ -50,7 +50,7 @@ const IntroWebEffect = () => {
         <div className="intro-web-box w-screen h-screen grid place-content-center place-items-center">
           <div className="intro-web-Box1 w-full h-[60vh] overflow-hidden">
             <div className="tube-light-container w-full grid place-content-center">
-              <div className="intro-web-img w-screen h-auto place-items-center">
+              <div className="intro-web-img max-w-[300px] md:max-w-[400px] w-screen h-auto place-items-center">
                 <img
                   src="/logos/anvi-space.png"
                   alt="intro-web-img"

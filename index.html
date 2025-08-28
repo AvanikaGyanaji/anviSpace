@@ -2,11 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="/logos/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/logos/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Apple touch icon (for iOS homescreen shortcuts) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/logos/favicon.ico">
+
+    <!-- Logo for SEO / search engines -->
+    <meta itemprop="image" content="https://anvispace.com/logos/anvi-space-logo.png">
+
     <!-- Basic SEO -->
-    <title>Anvi Space | Autonomous Robotics & Space Tech</title>
+    <title>Anvi Space</title>
     <meta name="description" content="Anvi Space builds cutting-edge autonomous robotics and modular space technologies, from orbital systems to surface exploration.">
     <meta name="keywords" content="Anvi Space, space robotics, autonomous systems, rovers, orbit technology, aerospace, propulsion, modular robotics">
     <meta name="author" content="Anvi Space">
@@ -14,8 +20,8 @@
     <!-- Open Graph (Social Media Preview) -->
     <meta property="og:title" content="Anvi Space">
     <meta property="og:description" content="Innovating modular robotics, autonomous rovers, and propulsion systems for the future of space exploration.">
-    <meta property="og:image" content="https://www.anvispace.com/logos/favicon.io">
-    <meta property="og:url" content="https://www.anvispace.com">
+    <meta property="og:image" content="https://anvispace.com/logos/anvi-space-logo.png">
+    <meta property="og:url" content="https://anvispace.com">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
@@ -33,31 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <!-- Attachment for Title Script for Attracting Users -->
-    <script>
-    let originalTitle = document.title;
-    let intervalId;
-    let messages = [
-      "🚀 We miss you!",
-      "👋 Come back to Anvi Space!",
-      "✨ Exploring the stars...",
-      "🤖 Autonomous Robotics awaits!",
-      "🌌 Your mission isn’t over!"
-    ];
-
-    window.addEventListener("blur", () => {
-      let i = 0;
-      intervalId = setInterval(() => {
-        document.title = messages[i % messages.length];
-        i++;
-      }, 1200);
-    });
-
-    window.addEventListener("focus", () => {
-      clearInterval(intervalId);
-      document.title = originalTitle;
-    });
-  </script>
+    <script src="./src/Utils/WebTitleEffect.js" defer></script>
   </head>
   <body>
     <div id="root"></div>

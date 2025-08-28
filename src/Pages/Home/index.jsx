@@ -364,17 +364,17 @@ const Home = () => {
                 ref={(el) => (servicesRef.current[idx] = el)}
                 className="space-y-4 p-1 rounded-xl shadow-lg"
               >
-                <div className="overflow-hidden rounded-lg shadow-md">
+                <div className="overflow-hidden w-full aspect-[16/9] bg-gray-950 object-center rounded-lg hover:rounded-none transition-all duration-350 hover:shadow-xl hover:shadow-gray-900">
                   <img
                     src={service.imgSrc}
-                    alt={service.imgAlt}
+                    alt={service.title}
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src =
-                        "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2323251d-e9ed-44e8-81fb-ca8a70ae75f7.png";
+                      // e.currentTarget.src =
+                      //   "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2323251d-e9ed-44e8-81fb-ca8a70ae75f7.png";
                     }}
-                    className="w-full h-auto md:max-h-56 object-cover aspect-video transform hover:scale-110 hover:shadow-gray-50 hover:shadow-md transition-transform duration-400 ease-in-out"
+                    className="w-full h-auto md:max-h-56 object-cover aspect-video transform hover:scale-105 transition-all duration-500 ease-in-out"
                   />
                 </div>
                 <h3 className="text-[16px] text-white m-0 mb-1 font-semibold leading-tight">

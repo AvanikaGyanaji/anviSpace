@@ -84,7 +84,7 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="max-md:flex hidden w-screen h-screen overflow-y-auto bg-black absolute top-0 left-0">
             <button
-              className="menu-close-btn absolute top-7 right-7 cursor-pointer border-1 border-gray-100"
+              className="menu-close-btn absolute top-7 right-7 cursor-pointer border-1 border-gray-100 active:rotate-360 active:scale-75 active:opacity-10 transition-all duration-150"
               onClick={updateMobileMenuOpen}
             >
               <Plus color="white" size={30} className="rotate-45 w-min h-min" />
@@ -142,7 +142,7 @@ const Header = () => {
 
       {/* Mobile Menu Button */}
       <button
-        className="hidden max-md:block mr-4 cursor-pointer"
+        className="hidden max-md:block mr-4 cursor-pointer active:rotate-360 active:opacity-0 transition-all duration-150"
         onClick={updateMobileMenuOpen}
       >
         <Menu size={30} color="white" />

@@ -66,6 +66,7 @@
   max-width: 400px;
   z-index: 900;
   position: fixed;
+  filter: none;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   animation: FadeSlideInLogo 5s ease-in-out 1s 1 forwards;
   /* , IntroLogotoHeader 2.5s ease-in-out 5s 1 forwards; */
