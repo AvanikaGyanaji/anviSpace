@@ -44,6 +44,7 @@ const Footer = () => (
         <Link
           to="https://maps.app.goo.gl/rGCJomuj6BP18opS9"
           target="_blank"
+          rel="noopener"
           className="flex justify-center align-middle gap-3 place-items-center"
         >
           <span className="font-semibold text-gray-100 self-start">
@@ -70,6 +71,7 @@ const Footer = () => (
         <Link
           to="https://www.linkedin.com/company/anvispace/"
           target="_blank"
+          rel="noopener"
           className="hover:underline h-max text-[12px] place-items-center flex justify-start align-middle gap-3 underline-offset-5"
         >
           <Linkedin size={18} /> Linkedin
@@ -93,7 +95,7 @@ const Footer = () => (
         Contact US
       </a>
     </div>
-    <p className="text-center text-white mt-10">&copy; 2015 anvispace.co</p>
+    <p className="text-center text-white mt-10">&copy; 2025 anvispace.co</p>
   </footer>
 );
 
