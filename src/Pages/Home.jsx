@@ -62,14 +62,17 @@ const Home = () => {
         ></div>
 
         {/* Hero Content */}
-        <div className="w-full z-3 max-w-[1000px] min-h-[25vh] mt-[25vh] text-center flex flex-col justify-center align-middle gap-[12px]">
-          <h1 className="text-[28px] text-[#FEFEFE] font-[400] uppercase tracking-[2px]">
-            Independent. Intelligent. Interplanetary.
+        <div className="w-full z-3 max-w-[1000px] min-h-[25vh] mt-[25vh] text-center flex flex-col justify-center align-middle gap-[2px]">
+          <h1 className="text-[34px] m-0 text-[#FEFEFE] font-[400] uppercase tracking-[2px]">
+            Designing Self-Sustaining
           </h1>
-          <p className="text-[16px] max-w-[750px] m-auto text-[#FEFEFE] px-5 tracking-[1px] font-[inter] font-[300]">
+          {/* <p className="text-[16px] max-w-[750px] m-auto text-[#FEFEFE] px-5 tracking-[1px] font-[inter] font-[300]">
             “We build modular robotic systems from debris removal to intelligent
             rovers powering our mission, SPACE KARKANA for sustainable space
             exploration”
+          </p> */}
+          <p className="text-[20px] max-w-[750px] m-auto text-[#ccc] px-5 tracking-[1px] font-[300]">
+              Ecosystems <strong className="font-extrabold">Beyond Earth.</strong>
           </p>
           <a
             href="#about"
@@ -86,7 +89,7 @@ const Home = () => {
         id="about"
         className="about-section p-2 pt-0 relative z-2 grid place-content-center place-items-center w-full text-white bg-black"
       >
-        <div className="about-box w-screen min-h-[600px] max-h-[900px] max-md:h-[80vh] relative py-8 pt-10 px-2 text-center h-full flex flex-col justify-start align-middle gap-5">
+        <div className="about-box w-screen min-h-[90vh] md:min-h-[600px] max-h-[900px] max-md:h-[80vh] relative py-8 pt-15 px-2 text-center h-full flex flex-col justify-start align-middle gap-5">
           <video
             src="/videos/about-bg.mp4"
             muted={true}
@@ -114,7 +117,7 @@ const Home = () => {
         id="products"
         className="products-section relative z-2 pt-15 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="products-box w-full pt-8 pb-4 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div className="products-box w-full pt-2 pb-4 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
           <h3 className="text-[28px] font-[400] text-white tracking-[2px] uppercase">
             our products
           </h3>

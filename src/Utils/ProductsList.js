@@ -4,6 +4,7 @@ export const productsList = [
     title: "“The Rise of anvi From Lauch To Legacy-We Build For The Cosmos”",
     img_url: "/logos/space-karkana-bg.png",
     exploreLabel: "",
+    // exploreLink: "/missions/#roadmap",
     exploreLink: "/missions/#about-space-karkana",
     style: {
       backgroundImage: `url("/images/prod-space-karkana-bgImg.jpg")`,

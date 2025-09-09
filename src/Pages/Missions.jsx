@@ -30,7 +30,7 @@ const Missions = () => {
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <h1 className="text-[72px] max-w-[1000px] max-md:text-[48px] font-[500] m-0 leading-[5.5rem] tracking-[-1.6px] capitalize font-[Inter] text-white text-center">
+          <h1 className="text-[72px] max-w-[1000px] max-md:text-[48px] font-[500] m-0 leading-[3.5rem] md:leading-[5.5rem] tracking-[-1.6px] capitalize font-[Inter] text-white text-center">
             Foundation for a Sustainable Space Future
           </h1>
           <p className="text-[16px] max-w-[820px] max-md:text-[14px] font-[400] leading-[24.61px] tracking-[-0.4px] font-[Inter] text-[#bbb] text-center mt-4 px-4">
@@ -42,12 +42,14 @@ const Missions = () => {
             className="about-space-btn explore-btn inline-flex justify-center align-middle animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[16px] font-[400] text-white uppercase transition-all duration-150"
             style={{ animationDelay: "1s !important" }}
             onClick={() => {
-                const targetElement = document.getElementById('about-space-karkana');
-                // console.log("targetElement:", targetElement);
-                if (targetElement) {
-                    document.body.scrollIntoView({ behavior: "smooth" });
-                    targetElement.scrollIntoView({ behavior: "smooth" });
-                }
+              const targetElement = document.getElementById(
+                "about-space-karkana"
+              );
+              // console.log("targetElement:", targetElement);
+              if (targetElement) {
+                document.body.scrollIntoView({ behavior: "smooth" });
+                targetElement.scrollIntoView({ behavior: "smooth" });
+              }
             }}
           >
             About Space Karkana <ChevronsDown size={20} className="mt-1" />
@@ -57,7 +59,7 @@ const Missions = () => {
 
       <section
         id="about-space-karkana"
-        className="w-screen m-auto min-h-screen md:max-h-[800px] relative place-content-center bg-[#010204]"
+        className="w-screen m-auto min-h-screen pt-[50px] md:max-h-[800px] relative place-content-center bg-[#010204]"
         style={{
           backgroundImage: "url('/images/karkana-bg.png')",
           backgroundSize: "cover",
@@ -114,8 +116,11 @@ const Missions = () => {
         </div>
       </section>
 
-        {/* RoadMap Missions */}
-      <section className="w-screen max-w-[1400px] m-auto text-center py-4">
+      {/* RoadMap Missions */}
+      <section
+        id="roadmap"
+        className="w-screen max-w-[1400px] m-auto text-center pt-[60px] py-4"
+      >
         {/* Content Top */}
         <div className="inline-flex w-full flex-col items-center gap-3 relative">
           <div className="inline-flex items-center justify-center gap-2.5 p-2 relative flex-[0_0_auto] rounded-lg border border-solid border-[#fefefe]">
@@ -142,11 +147,9 @@ const Missions = () => {
         </div>
 
         {/* RoadMap Ul Cards */}
-        <ul
-          className="roadmap-ul w-full relative flex flex-col gap-2 justify-start max-w-[1200px] px-5 h-[500px] overflow-y-auto my-12 mx-auto font-[inter] text-white scroll-smooth transition-all duration-150"
-        >
-          {RoadMapDataList.map(eachCard => (
-              <RoadMapCard key={eachCard.number} data= {eachCard}/>
+        <ul className="roadmap-ul w-full relative flex flex-col gap-2 justify-start place-items-center max-w-[1200px] px-5 sm:h-screen md:h-[450px] lg:h-[500px] overflow-hidden p-0 m-0 overflow-y-auto my-12 mx-auto font-[inter] text-white scroll-smooth transition-all duration-150">
+          {RoadMapDataList.map((eachCard) => (
+            <RoadMapCard key={eachCard.number} data={eachCard} />
           ))}
 
           {/* bottom black bg */}
@@ -155,7 +158,6 @@ const Missions = () => {
           >
           </div> */}
         </ul>
-
       </section>
     </>
   );

@@ -8,9 +8,10 @@ import IntroWebEffect from "./Components/IntroWebEffect";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
-import Home from "./Pages/Home";
+import Home from "./pages/Home";
 import Careers from "./Pages/Careers";
 import Missions from "./pages/Missions";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
 
@@ -40,8 +41,8 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path={pagesLinksList.Careers} element={<Careers />} /> 
           <Route path="/missions" element={<Missions />} />
-          {/* <Route path="/pillars" element={<Pillars />} />  */}
-          {/* <Route path="*" element={<NotFound />} />  */}
+          {/* <Route path="/pillars" element={<Pillars />} /> */}
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
