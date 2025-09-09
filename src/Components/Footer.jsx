@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 // import { FaInstagram, FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => (
-  <footer className="w-full p-3 pt-20 pb-5 flex flex-col justify-center align-middle bg-black">
+  <footer className="w-full p-3 pt-20 pb-5 z-50 flex flex-col justify-center align-middle bg-black">
     <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 border-t border-gray-800 pt-12 text-white text-sm px-3 md:px-6 sm:px-12">
       <div className="space-y-6 flex flex-col order-0 justify-between">
         <img

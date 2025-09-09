@@ -1,10 +1,11 @@
 export const pagesLinksList = {
-    'Home': '#home',
-    'Pillars': '#pillars',
-    'Missions': '#missions',
-    'Products': '#products',
-    'Services': '#services',
-    'Contact Us': '#contact'
+    'Home': '/#home',
+    'About': '/#about',
+    'Products': '/#products',
+    'Missions': '/missions',
+    'Services': '/#services',
+    'Careers': '/careers',
+    'Contact Us': '/#contact'
 
     // 'Home': '/',
     // 'Products': '/products',

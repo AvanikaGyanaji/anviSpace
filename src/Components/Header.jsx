@@ -1,13 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { pagesLinksList } from "../Utils/PagesLinksList";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, Plus } from "lucide-react";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const currentPage = useRef(null);
 
   const updateMobileMenuOpen = () => {
     setMobileMenuOpen((prev) => !prev);
@@ -15,7 +14,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY >= window.innerHeight) {
+      if (window.scrollY >= 10) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -23,21 +22,44 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    // handleScroll()
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const getCurrentPage = () => {
-    currentPage.current = location.pathname;
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+  const currentPageStyle = (link) => {
+    const pathWithHash = location.pathname + location.hash;
+    // console.log("pathWithHash:", pathWithHash, "checking link:", link);
+
+    // ✅ Exact match (e.g., /careers)
+    if (link === pathWithHash) {
+      return "currentPageLink";
+    }
+
+    // ✅ Homepage sections (/#about, /#contact, etc.)
+    if (
+      location.pathname === "/" &&
+      link.startsWith("/#") &&
+      location.hash === "#" + link.split("#")[1]
+    ) {
+      return "currentPageLink";
+    }
+
+    return "";
   };
-
-  getCurrentPage();
-
-  const currentPageStyle = (link) =>
-    currentPage.current === link ? "currentPageLink" : "";
 
   return (
     <header
-      className={`w-full h-[80px] fixed top-0 z-10 mx-auto flex justify-between align-middle text-white px-2 md:px-8 place-items-center text-[16px] max-md:text-xs`}
+      className={`w-full h-[80px] fixed top-0 z-10 mx-auto flex justify-between align-middle text-white px-2 md:px-3 lg:px-8 place-items-center text-[16px] max-md:text-xs transition-background duration-300`}
       style={{
         background: scrolled
           ? "linear-gradient(180deg, #111 60%, transparent)"
@@ -53,7 +75,7 @@ const Header = () => {
       <link rel="preload" as="image" href="/logos/anvi-space.png" />
       <nav className="flex justify-center align-middle">
         {/* Desktop Nav */}
-        <ul className="nav-ul flex max-md:hidden m-0 p-0 justify-center align-middle gap-4 md:gap-[24px]">
+        <ul className="nav-ul flex max-md:hidden m-0 p-0 justify-center align-middle gap-4 md:gap-[12px] lg:gap-[24px]">
           {Object.keys(pagesLinksList)
             .splice(0, 5)
             .map((pageKey) => (
@@ -63,26 +85,19 @@ const Header = () => {
                   pagesLinksList[pageKey]
                 )}`}
               >
-                <a
-                  href={pagesLinksList[pageKey]}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const targetId = pagesLinksList[pageKey].replace("#", "");
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                      targetElement.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
+                <Link
+                  to={pagesLinksList[pageKey]}
+                  className={currentPageStyle(pagesLinksList[pageKey])}
                 >
                   {pageKey}
-                </a>
+                </Link>
               </li>
             ))}
         </ul>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="max-md:flex hidden w-screen h-screen overflow-y-auto bg-black absolute top-0 left-0">
+          <div className="max-md:flex hidden w-[105%] h-screen overflow-y-auto bg-black absolute top-0 -left-5">
             <button
               className="menu-close-btn absolute top-7 right-7 cursor-pointer border-1 border-gray-100 active:rotate-360 active:scale-75 active:opacity-10 transition-all duration-150"
               onClick={updateMobileMenuOpen}
@@ -99,23 +114,15 @@ const Header = () => {
                       pagesLinksList[pageKey]
                     )}`}
                   >
-                    <a
-                      href={pagesLinksList[pageKey]}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const targetId = pagesLinksList[pageKey].replace(
-                          "#",
-                          ""
-                        );
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
-                          targetElement.scrollIntoView({ behavior: "smooth" });
-                        }
-                        setMobileMenuOpen(false); // ✅ close menu after navigating
+                    <Link
+                      to={pagesLinksList[pageKey]}
+                      className={currentPageStyle(pagesLinksList[pageKey])}
+                      onClick={() => {
+                        updateMobileMenuOpen?.();
                       }}
                     >
                       {pageKey}
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ul>
@@ -123,22 +130,27 @@ const Header = () => {
         )}
       </nav>
 
-      {/* Contact Us Link */}
-      <a
-        href={pagesLinksList["Contact Us"]}
-        target=""
-        className={`${currentPageStyle(pagesLinksList[5])} max-md:hidden`}
-        onClick={(e) => {
-          e.preventDefault();
-          const targetId = pagesLinksList["Contact Us"].replace("#", "");
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-      >
-        {Object.keys(pagesLinksList)[5]}
-      </a>
+      <span className="flex justify-center items-center gap-5">
+        {/* Careers (separate page) */}
+        <Link
+          to={pagesLinksList.Careers}
+          className={`${currentPageStyle(
+            pagesLinksList.Careers
+          )} max-md:hidden`}
+        >
+          Careers
+        </Link>
+
+        {/* Contact Us (scroll on home) */}
+        <Link
+          to={pagesLinksList["Contact Us"]}
+          className={`${currentPageStyle(
+            pagesLinksList["Contact Us"]
+          )} max-md:hidden`}
+        >
+          Contact Us
+        </Link>
+      </span>
 
       {/* Mobile Menu Button */}
       <button

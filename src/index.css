@@ -55,7 +55,7 @@ body::-webkit-scrollbar-track {
   position: fixed;
 } */
 header li,
-header a {
+header nav + span a {
   transition: all 0.2s 0s ease-in-out;
   border-bottom: 2px solid transparent;
 }
@@ -70,8 +70,6 @@ header a:hover:not(.currentPageLink) {
   text-shadow: 0 0 5px #eee;
 }
 
-
-
 /* ========================== */
 /* FOOTER */
 
@@ -82,35 +80,69 @@ header a:hover:not(.currentPageLink) {
 .explore-btn{
   background-color: #00000060 !important;
 }
-.pillars-li {
-  cursor: pointer;
-}
-.pillars-box ul {
-  width: 96vw !important;
-  background-color: #000 !important;
-}
 .coming-soon-btn{
   background-color: #000 !important;
 }
-.pillars-li-p {
-  background: linear-gradient(261deg, #111 0.62%, rgba(62, 61, 61, 0.10) 99.38%);
-  background-color: #000000;
-  /* backdrop-filter:; */
-  opacity: 0;
-  box-shadow: 0 0 20px 2px #151515;
-  /* border: none; */
-  transition: all 0.4s 0s ease-in-out;
+
+.star-animate {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
 }
 
-.pillars-li-p::first-letter {
-  /* font-size: 24px; */
+.star-animate-bg {
+  background-image: url('/images/Star Animate.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.star-bg-1 {
+  opacity: 0.9;
+  animation: starAnimation 200s linear infinite;
+}
+.star-bg-2 {
+  transform: scale(0.8);
+  opacity: 0.6;
+  animation: starAnimation 300s linear infinite reverse;
+}
+.star-bg-3 {
+  transform: scale(1.5);
+  opacity: 0.4;
+  animation: starAnimation 350s linear infinite forwards;
+}
+.star-bg-4 {
+  transform: scale(2);
+  opacity: 0.3;
+  animation: starAnimation 400s linear infinite forwards;
 }
 
-.pillars-li:hover .pillars-li-p {
-  opacity: 1;
-  transform: scale(1.1);
+@keyframes starAnimation {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg) scale(1);
+    opacity: inherit;
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 180deg) scale(1.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg) scale(1);
+    opacity: inherit;
+  }
 }
 
+/* ========================== */
+
+/* About Section */
+.about-box video{
+  background-image: url('/videos/about-bg.mp4');
+}
+/* ========================== */
 
 /* Mission Section */
 
@@ -155,4 +187,41 @@ header a:hover:not(.currentPageLink) {
       transform: scale(1.02);
     }
   }
+}
+
+
+/* Careers Page */
+.careers-apply-btn{
+  color: #FFF !important;
+  font-family: "Shinko Sans";
+  font-size: 18px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.44px;
+  border-radius: 6px !important;
+  border: 1.5px solid #111 !important;
+  background-color: #00000080 !important;
+  /* background: linear-gradient(270deg, #161616 0%, #121111 100%) !important; */
+  background: linear-gradient(270deg, #000 5%, #161616 90%) !important;
+  background-blend-mode: soft-light;
+}
+/* .careers-apply-btn::before, .careers-apply-btn::after{
+} */
+
+
+
+/* MISSIONS PAGE */
+.about-space-btn{
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+  text-transform: capitalize;
+  padding: 5px 15px !important;
+  border-radius: 5px !important;
+  color: #FFF !important;
+}
+.roadmap-ul{
+  scrollbar-width:none;
+  scrollbar-color: #fff;
 }

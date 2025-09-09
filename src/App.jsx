@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { pagesLinksList } from "./Utils/PagesLinksList";
+
+import { useEffect } from "react";
+import { pagesLinksList } from "./Utils/PagesLinksList";
 
 import IntroWebEffect from "./Components/IntroWebEffect";
 
@@ -7,7 +9,8 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 import Home from "./Pages/Home";
-import { useEffect } from "react";
+import Careers from "./Pages/Careers";
+import Missions from "./pages/Missions";
 
 const App = () => {
 
@@ -35,7 +38,10 @@ const App = () => {
       <main className="w-screen min-h-screen overflow-x-hidden relative bg-[#030406]">
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path={pagesLinksList.Careers} element={<Careers />} /> 
+          <Route path="/missions" element={<Missions />} />
           {/* <Route path="/pillars" element={<Pillars />} />  */}
+          {/* <Route path="*" element={<NotFound />} />  */}
         </Routes>
       </main>
       <Footer />
