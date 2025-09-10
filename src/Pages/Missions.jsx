@@ -2,9 +2,39 @@ import { ChevronsDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { RoadMapDataList } from "../Utils/RoadMapDataList";
 import RoadMapCard from "../Components/RoadMapCard";
+import { pagesLinksList } from "../Utils/PagesLinksList";
+import { useLocation } from "react-router-dom";
 
 const Missions = () => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const location = useLocation();
+
+    useEffect(() => {
+    let { pathname, hash, search } = location;
+
+    // normalize trailing slash
+    const orgUrl = pathname;
+    if (pathname !== "/" && pathname.endsWith("/")) {
+      pathname = pathname.slice(0, -1);
+    }
+
+    if (orgUrl !== pagesLinksList.Missions) {
+      const targetId = hash ? hash.replace("#", "") : "roadmap";
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+
+        // if URL had #roadmap, clean it back to /missions
+        if (hash) {
+          let cleanPath = pathname + search;
+          window.history.replaceState(null, "", cleanPath);
+        }
+      }
+    } else {    
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   useEffect(() => {
     const container = document.querySelector(".roadmap-ul");
@@ -68,8 +98,11 @@ const Missions = () => {
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <h1 className="text-[72px] max-w-[1000px] max-md:text-[48px] font-[500] m-0 leading-[3.5rem] md:leading-[5.5rem] tracking-[-1.6px] capitalize font-[Inter] text-white text-center">
-            Foundation for a Sustainable Space Future
+          <h1 className="text-[44px] uppercase max-w-[1200px] max-md:text-[48px] font-[500] m-0 leading-[3.5rem] md:leading-[5.5rem] tracking-[-1.6px] font-[Shinko sans] text-white text-center"
+            style={{fontFamily: 'Shinko Sans'}}
+          >
+            {/* Foundation for a Sustainable Space Future */}
+            Independent. Intelligent. Interplanetary.
           </h1>
           <p className="text-[16px] max-w-[820px] max-md:text-[14px] font-[400] leading-[24.61px] tracking-[-0.4px] font-[Inter] text-[#bbb] text-center mt-4 px-4">
             From debris cleanup to in-orbit recycling, manufacturing, and
@@ -90,7 +123,7 @@ const Missions = () => {
               }
             }}
           >
-            About Space Karkana <ChevronsDown size={20} className="mt-1" />
+            Explore <ChevronsDown size={20} className="mt-1" />
           </button>
         </div>
       </section>
@@ -162,11 +195,11 @@ const Missions = () => {
       >
         {/* Content Top */}
         <div className="inline-flex w-full flex-col items-center gap-3 relative">
-          <div className="inline-flex items-center justify-center gap-2.5 p-2 relative flex-[0_0_auto] rounded-lg border border-solid border-[#fefefe]">
+          {/* <div className="inline-flex items-center justify-center gap-2.5 p-2 relative flex-[0_0_auto] rounded-lg border border-solid border-[#fefefe]">
             <div className="relative w-fit mt-[-1.00px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#fefefe] text-base text-center tracking-[0] leading-6 whitespace-nowrap">
               Roadmap
             </div>
-          </div>
+          </div> */}
 
           <div className="flex flex-col gap-3.5 font-[inter] self-stretch w-full items-center relative flex-[0_0_auto]">
             <div className="inline-flex justify-center gap-2.5 items-center relative flex-[0_0_auto]">
@@ -187,7 +220,6 @@ const Missions = () => {
 
         {/* RoadMap Ul Cards */}
         <ul className="roadmap-ul w-full relative flex flex-col gap-2 justify-start place-items-center max-w-[1200px] px-5 sm:h-screen md:h-[450px] lg:h-[500px] overflow-hidden p-0 m-0 overflow-y-auto my-12 mx-auto font-[inter] text-white scroll-smooth transition-all duration-150">
-          // In your Missions.js, replace the mapping section:
           {RoadMapDataList.map((eachCard, index) => (
             <RoadMapCard
               key={eachCard.number}

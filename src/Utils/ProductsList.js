@@ -5,7 +5,7 @@ export const productsList = [
     img_url: "/logos/space-karkana-bg.png",
     exploreLabel: "",
     // exploreLink: "/missions/#roadmap",
-    exploreLink: "/missions/#about-space-karkana",
+    exploreLink: "/missions/#roadmap",
     style: {
       backgroundImage: `url("/images/prod-space-karkana-bgImg.jpg")`,
       backgroundPosition: "top",

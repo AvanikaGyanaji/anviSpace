@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import ContactForm from "../Components/ContactForm";
 import { servicesList } from "../Utils/ServicesList";
 import { productsList } from "../Utils/ProductsList";
+import ScrollToHash from "../Utils/ScrollToHash";
+
 
 const Home = () => {
   const introRef = useRef(null);
   const headlineRef = useRef(null);
   const servicesRef = useRef([]);
+
+  // scroll to hash
+  ScrollToHash()
 
   // GSAP for Hero Section BG
   useEffect(() => {
@@ -65,31 +70,36 @@ const Home = () => {
       {/* Home - Hero Section   */}
       <section
         id="home"
-        className="hero-section section1 w-full h-screen overflow-y-hidden bg-[#05080a] relative grid place-items-center overflow-hidden font-[Shinko Sans]"
+        className="hero-section section1 w-full h-[120vh] lg:h-[120vh] overflow-y-hidden bg-[#05080a] relative grid place-items-center overflow-hidden font-[Shinko Sans]"
       >
         <div
           ref={introRef}
-          className="absolute top-15 md:top-0 z-2 w-screen h-screen bg-cover bg-top bg-no-repeat object-center aspect-video brightness-60"
+          className="absolute top-15 md:top-0 z-2 w-screen h-screen lg:h-[110vh] bg-cover bg-top bg-no-repeat object-center aspect-video brightness-60"
           style={{ backgroundImage: 'url("/images/earth-hero-bg.jpg")' }}
         ></div>
 
         {/* Hero Content */}
-        <div className="w-full z-3 max-w-[1000px] min-h-[25vh] mt-[25vh] text-center flex flex-col justify-center align-middle gap-[2px]">
-          <h1 className="text-[34px] m-0 text-[#FEFEFE] font-[400] uppercase tracking-[2px]">
-            Designing Self-Sustaining
+        <div className="w-full z-3 max-w-[1100px] min-h-[25vh] mt-[0vh] text-center flex flex-col justify-center align-middle gap-[2px]">
+          <h1 className="text-[66px] m-0 text-[#FEFEFE] font-[600] font-[inter] tracking-[2px] leading-[64px]">
+            {/* <span className="tracking-tight">Designing</span> Self-Sustaining <br />
+            <span className="text-[44px] font-[400] tracking-tight">Ecosystems</span> <span className="text-[48px] font-[800]">Beyond Earth.</span> */}
+            <span className="text-[48px]">Foundation for a Sustainable Space Future</span>
+            <br />
+            <span className="text-[44px] font-[400] tracking-tight">Ecosystems</span> <span className="text-[48px] font-[800]">Beyond Earth.</span>            
           </h1>
+
           {/* <p className="text-[16px] max-w-[750px] m-auto text-[#FEFEFE] px-5 tracking-[1px] font-[inter] font-[300]">
             “We build modular robotic systems from debris removal to intelligent
             rovers powering our mission, SPACE KARKANA for sustainable space
             exploration”
           </p> */}
-          <p className="text-[20px] max-w-[750px] m-auto text-[#ccc] px-5 tracking-[1px] font-[300]">
+          {/* <p className="text-[20px] max-w-[750px] m-auto text-[#ccc] px-5 tracking-[1px] font-[300]">
             Ecosystems <strong className="font-extrabold">Beyond Earth.</strong>
-          </p>
+          </p> */}
           <a
             href="#about"
             target=""
-            className="explore-btn animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[34px] font-[400] mt-[20vh] text-white uppercase transition-all duration-150"
+            className="explore-btn animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[34px] font-[400] mt-[30px] text-white uppercase transition-all duration-150"
           >
             Explore
           </a>
@@ -99,7 +109,7 @@ const Home = () => {
       {/* ABOUT SECTION */}
       <section
         id="about"
-        className="about-section p-2 pt-0 relative z-2 grid place-content-center place-items-center w-full text-white bg-black"
+        className="about-section h-auto max-md:mb-10 p-2 pt-0 relative z-2 grid place-content-center place-items-center w-full text-white bg-black"
       >
         <div className="about-box w-screen min-h-[90vh] md:min-h-[600px] max-h-[900px] max-md:h-[80vh] relative py-8 pt-15 px-2 text-center h-full flex flex-col justify-start align-middle gap-5">
           <video
@@ -107,7 +117,7 @@ const Home = () => {
             muted={true}
             autoPlay={true}
             loop
-            className="absolute top-0 left-0 w-screen h-[650px] max-md:h-[95vh] object-cover object-center bg-blend-color-burn -z-1"
+            className="absolute top-0 left-0 w-screen h-[650px] max-md:h-[110vh] object-cover object-center bg-blend-color-burn -z-1"
             loading="lazy"
           ></video>
           <h3 className="text-[28px] tracking-[2px] uppercase font-[Shinko Sans]">
@@ -146,7 +156,7 @@ const Home = () => {
               >
                 <div className="flex flex-col justify-center text-left align-top gap-5 py-3 px-5 font-[Inter] text-[#FEFEFE]">
                   <h4
-                    className="font-[500] text-[18px] tracking-[0.44px] leading-[24px]"
+                    className="font-[500] z-1 text-[18px] tracking-[0.44px] leading-[24px]"
                     style={{ fontFamily: "inter, sans-serif" }}
                   >
                     {product.title}
@@ -244,17 +254,17 @@ const Home = () => {
         className="contact-section relative z-2 grid place-content-center place-items-center w-full p-2 pt-10 text-white"
       >
         <div className="contact-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
-          <h3 className="text-[28px] font-[400] text-white tracking-[2px] uppercase">
-            JOIN US IN REVOLUTIONIZING SPACE ROBOTICS
+          <h3 className="text-[30px] font-[400] text-white tracking-[2px] uppercase">
+            Launch Your Ideas with Us.
           </h3>
-          <p
+          {/* <p
             className="text-[16px] font-[400] text-[#B3B3B3] max-w-[650px] m-auto"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Be part of the future of space exploration. Together, we're building
             the robotic systems that will enable sustainable space operations
             for generations to come.
-          </p>
+          </p> */}
 
           {/* Contact Form */}
           <ContactForm />
