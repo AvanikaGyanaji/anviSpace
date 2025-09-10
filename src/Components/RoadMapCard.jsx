@@ -1,9 +1,9 @@
 const RoadMapCard = ({ data }) => {
   if (!data) return <p>No Data</p>;
-  console.log("RoadMapCard data:", data);
+  // console.log("RoadMapCard data:", data);
 
   return (
-    <li className="max-w-6xl w-full relative md:sticky top-0 z-1 scroll-smooth bg-black rounded-2xl border-1 border-[#282828] py-[20px] px-[25px] max-md:py-[30px] lg:p-[48px] flex max-md:flex-wrap flex-row justify-between align-middle items-center max-md:gap-4 max-md:min-h-screen">
+    <li className="max-w-6xl w-full relative md:sticky top-[20px] z-1 scroll-smooth bg-black rounded-2xl border-1 border-[#282828] py-[20px] px-[25px] max-md:py-[30px] lg:p-[48px] flex max-md:flex-wrap flex-row justify-between align-middle items-center max-md:gap-4 max-md:min-h-max">
       {/* Left */}
       <div className="flex-1 flex max-md:w-full md:max-w-[300px] flex-col gap-2 md:gap-[30px] items-center lg:items-start">
         <h1 className="text-2xl md:text-[24px] text-left font-semibold mb-4 uppercase">

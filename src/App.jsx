@@ -1,36 +1,34 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { useEffect } from "react";
-import { pagesLinksList } from "./Utils/PagesLinksList";
+import { pagesLinksList } from "./utils/PagesLinksList";
 
-import IntroWebEffect from "./Components/IntroWebEffect";
+import IntroWebEffect from "./components/IntroWebEffect";
 
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import Careers from "./Pages/Careers";
+import Careers from "./pages/Careers";
 import Missions from "./pages/Missions";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
-
   useEffect(() => {
-  const mainEl = document.querySelector("main");
-  if (mainEl) {
-    // lock scroll immediately
-    document.body.style.overflowY = "hidden";
+    const mainEl = document.querySelector("main");
+    if (mainEl) {
+      // lock scroll immediately
+      document.body.style.overflowY = "hidden";
 
-    // restore scroll after 6s
-    const timer = setTimeout(() => {
-      document.body.style.overflowY = "auto";
-    }, 6000);
+      // restore scroll after 6s
+      const timer = setTimeout(() => {
+        document.body.style.overflowY = "auto";
+      }, 6000);
 
-    // cleanup on unmount
-    return () => clearTimeout(timer);
-  }
-}, []);
-
+      // cleanup on unmount
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   return (
     <BrowserRouter>
@@ -38,8 +36,8 @@ const App = () => {
       <Header />
       <main className="w-screen min-h-screen overflow-x-hidden relative bg-[#030406]">
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path={pagesLinksList.Careers} element={<Careers />} /> 
+          <Route path="/" element={<Home />} />
+          <Route path={pagesLinksList.Careers} element={<Careers />} />
           <Route path="/missions" element={<Missions />} />
           {/* <Route path="/pillars" element={<Pillars />} /> */}
           <Route path="/*" element={<NotFound />} />

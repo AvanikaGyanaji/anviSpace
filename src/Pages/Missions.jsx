@@ -1,6 +1,6 @@
 import { ChevronsDown } from "lucide-react";
-import { RoadMapDataList } from "../Utils/RoadMapDataList";
-import RoadMapCard from "../Components/RoadMapCard";
+import { RoadMapDataList } from "../utils/RoadMapDataList";
+import RoadMapCard from "../components/RoadMapCard";
 
 const Missions = () => {
   window.scrollTo(0, 0);
@@ -57,6 +57,7 @@ const Missions = () => {
         </div>
       </section>
 
+      {/* Products Section */}
       <section
         id="about-space-karkana"
         className="w-screen m-auto min-h-screen pt-[50px] md:max-h-[800px] relative place-content-center bg-[#010204]"
@@ -68,7 +69,7 @@ const Missions = () => {
         }}
       >
         <div className="w-full flex flex-col md:flex-row justify-around align-middle items-end gap-2 relative p-10 px-5">
-          <div className="flex flex-col max-w-full md:max-w-1/2 w-[623px] min-h-[387px] items-start gap-[30px] relative">
+          <div className="flex flex-col md:max-w-full max-md:w-full md:w-[623px] min-h-[387px] items-start gap-[30px] relative">
             <div className="relative self-stretch w-full h-[178px]">
               <div className="inline-flex items-center justify-center gap-2.5 p-2 absolute top-0 left-0 rounded-lg border border-solid border-[#fefefe]">
                 <div className="relative w-fit mt-[-1.00px] [font-family:'Inter-Medium',Helvetica] font-medium text-[#fefefe] text-base text-center tracking-[0] leading-6 whitespace-nowrap">
@@ -119,7 +120,7 @@ const Missions = () => {
       {/* RoadMap Missions */}
       <section
         id="roadmap"
-        className="w-screen max-w-[1400px] m-auto text-center pt-[60px] py-4"
+        className="w-full max-w-[1400px] m-auto text-center pt-[60px] py-4"
       >
         {/* Content Top */}
         <div className="inline-flex w-full flex-col items-center gap-3 relative">

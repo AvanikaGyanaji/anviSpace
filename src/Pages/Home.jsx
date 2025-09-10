@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
-import ContactForm from "../Components/ContactForm";
-import { servicesList } from "../Utils/ServicesList";
-import { productsList } from "../Utils/ProductsList";
+import ContactForm from "../components/ContactForm";
+import { servicesList } from "../utils/ServicesList";
+import { productsList } from "../utils/ProductsList";
 
 const Home = () => {
   const introRef = useRef(null);
@@ -44,10 +44,22 @@ const Home = () => {
     <>
       {/* Star Animation Background Image */}
       <div className="star-animate fixed top-0 left-0 w-[100%] h-[100%] aspect-square z-0 overflow-visible">
-        <div className="star-animate-bg star-bg-1" style={{animationDelay: 10}}></div>
-        <div className="star-animate-bg star-bg-2" style={{animationDelay: 10}}></div>
-        <div className="star-animate-bg star-bg-3" style={{animationDelay: 10}}></div>
-        <div className="star-animate-bg star-bg-4" style={{animationDelay: 10}}></div>
+        <div
+          className="star-animate-bg star-bg-1"
+          style={{ animationDelay: 10 }}
+        ></div>
+        <div
+          className="star-animate-bg star-bg-2"
+          style={{ animationDelay: 10 }}
+        ></div>
+        <div
+          className="star-animate-bg star-bg-3"
+          style={{ animationDelay: 10 }}
+        ></div>
+        <div
+          className="star-animate-bg star-bg-4"
+          style={{ animationDelay: 10 }}
+        ></div>
       </div>
 
       {/* Home - Hero Section   */}
@@ -72,7 +84,7 @@ const Home = () => {
             exploration”
           </p> */}
           <p className="text-[20px] max-w-[750px] m-auto text-[#ccc] px-5 tracking-[1px] font-[300]">
-              Ecosystems <strong className="font-extrabold">Beyond Earth.</strong>
+            Ecosystems <strong className="font-extrabold">Beyond Earth.</strong>
           </p>
           <a
             href="#about"

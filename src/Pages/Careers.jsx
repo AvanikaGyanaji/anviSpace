@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { pagesLinksList } from "../Utils/PagesLinksList";
+import { pagesLinksList } from "../utils/PagesLinksList";
 
 const Careers = () => {
   window.scrollTo(0, 0);

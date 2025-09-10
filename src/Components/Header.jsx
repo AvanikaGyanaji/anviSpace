@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { pagesLinksList } from "../Utils/PagesLinksList";
+import { pagesLinksList } from "../utils/PagesLinksList";
 import { useEffect, useState } from "react";
 import { Menu, Plus } from "lucide-react";
 
