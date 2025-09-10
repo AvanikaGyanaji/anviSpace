@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { pagesLinksList } from "./utils/PagesLinksList";
 
 import IntroWebEffect from "./components/IntroWebEffect";
+import { WebTitleEffect } from "./utils/WebTitleEffect";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -29,6 +30,10 @@ const App = () => {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  useEffect(() => {
+    WebTitleEffect()
+  }, [])
 
   return (
     <BrowserRouter>
