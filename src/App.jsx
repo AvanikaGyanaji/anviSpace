@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { useEffect } from "react";
-import { pagesLinksList } from "./utils/PagesLinksList";
+import { pagesLinksList } from "./Utils/PagesLinksList";
 
-import IntroWebEffect from "./components/IntroWebEffect";
-import { WebTitleEffect } from "./utils/WebTitleEffect";
+import IntroWebEffect from "./Components/IntroWebEffect";
+import { WebTitleEffect } from "./Utils/WebTitleEffect";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
-import Home from "./pages/Home";
-import Careers from "./pages/Careers";
-import Missions from "./pages/Missions";
-import NotFound from "./pages/NotFound";
+import Home from "./Pages/Home";
+import Careers from "./Pages/Careers";
+import Missions from "./Pages/Missions";
+import NotFound from "./Pages/NotFound";
 
 const App = () => {
   useEffect(() => {

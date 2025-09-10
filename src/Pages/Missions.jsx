@@ -1,6 +1,6 @@
 import { ChevronsDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import { RoadMapDataList } from "../utils/RoadMapDataList";
+import { RoadMapDataList } from "../Utils/RoadMapDataList";
 import RoadMapCard from "../Components/RoadMapCard";
 
 const Missions = () => {

@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
-import ContactForm from "../components/ContactForm";
-import { servicesList } from "../utils/ServicesList";
-import { productsList } from "../utils/ProductsList";
+import ContactForm from "../Components/ContactForm";
+import { servicesList } from "../Utils/ServicesList";
+import { productsList } from "../Utils/ProductsList";
 
 const Home = () => {
   const introRef = useRef(null);
