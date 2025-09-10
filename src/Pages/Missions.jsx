@@ -1,9 +1,47 @@
 import { ChevronsDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import { RoadMapDataList } from "../utils/RoadMapDataList";
-import RoadMapCard from "../components/RoadMapCard";
+import RoadMapCard from "../Components/RoadMapCard";
 
 const Missions = () => {
-  window.scrollTo(0, 0);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  useEffect(() => {
+    const container = document.querySelector(".roadmap-ul");
+
+    const handleScroll = () => {
+      if (!container) return;
+
+      const cards = container.querySelectorAll(".roadmap-card");
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      const containerCenter = container.scrollTop + container.clientHeight / 2;
+
+      cards.forEach((card, index) => {
+        const cardTop = card.offsetTop;
+        const cardHeight = card.offsetHeight;
+        const cardCenter = cardTop + cardHeight / 3;
+        const distance = Math.abs(containerCenter - cardCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveCardIndex(closestIndex);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+
+    // Run once to set initial index
+    handleScroll();
+
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
   return (
     <>
       <section className="missions-section w-full h-screen relative place-content-center">
@@ -35,7 +73,7 @@ const Missions = () => {
           </h1>
           <p className="text-[16px] max-w-[820px] max-md:text-[14px] font-[400] leading-[24.61px] tracking-[-0.4px] font-[Inter] text-[#bbb] text-center mt-4 px-4">
             From debris cleanup to in-orbit recycling, manufacturing, and
-            scalable space habitats, we’re building tomorrow’s self-sustaining
+            scalable space habitats, we're building tomorrow's self-sustaining
             space econ
           </p>
           <button
@@ -90,7 +128,7 @@ const Missions = () => {
               satellite servicing, in-orbit recycling, and large-scale
               manufacturing. Building on these capabilities, we advance toward
               ISRU, space agriculture, and the creation of long-term
-              infrastructure and habitats to support humanity’s future in space.
+              infrastructure and habitats to support humanity's future in space.
             </p>
           </div>
 
@@ -149,15 +187,18 @@ const Missions = () => {
 
         {/* RoadMap Ul Cards */}
         <ul className="roadmap-ul w-full relative flex flex-col gap-2 justify-start place-items-center max-w-[1200px] px-5 sm:h-screen md:h-[450px] lg:h-[500px] overflow-hidden p-0 m-0 overflow-y-auto my-12 mx-auto font-[inter] text-white scroll-smooth transition-all duration-150">
-          {RoadMapDataList.map((eachCard) => (
-            <RoadMapCard key={eachCard.number} data={eachCard} />
+          // In your Missions.js, replace the mapping section:
+          {RoadMapDataList.map((eachCard, index) => (
+            <RoadMapCard
+              key={eachCard.number}
+              data={eachCard}
+              currentIndex={activeCardIndex}
+              totalItems={RoadMapDataList.length}
+              cardIndex={index}
+              className="roadmap-card"
+              data-index={index}
+            />
           ))}
-
-          {/* bottom black bg */}
-          {/* <div className="bg-white w-full h-32 fixed bottom-0 left-0 z-10"
-            style={{ background: "linear-gradient(to bottom, #000, #000)" }}
-          >
-          </div> */}
         </ul>
       </section>
     </>
