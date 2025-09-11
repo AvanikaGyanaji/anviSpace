@@ -130,7 +130,7 @@ useEffect(() => {
           </p>
           <button
             id="explore-btn"
-            className="about-space-btn explore-btn mt-[20px] inline-flex justify-center align-middle animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[16px] font-[400] text-white capitalize transition-all duration-150"
+            className="about-space-btn explore-btn mt-[20px] inline-flex gap-1 justify-center align-middle animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[16px] font-[400] text-white capitalize transition-all duration-150"
             onClick={() => {
               const targetElement = document.getElementById(
                 "about-space-karkana"
@@ -142,7 +142,7 @@ useEffect(() => {
               }
             }}
           >
-            Explore <ChevronsDown size={20} className="mt-1" />
+            Explore <ChevronsDown size={20} className="mt-0.5" />
           </button>
         </div>
       </section>
@@ -232,9 +232,9 @@ useEffect(() => {
         </div>
 
         {/* RoadMap Container */}
-        <div className="roadmap-cards-box flex">
+        <div className="roadmap-cards-box flex justify-center align-middle">
           {/* Side Indicator - Left */}
-          <div className="w-8 flex flex-col justify-center items-center ml-1 max-md:hidden">
+          <div className="w-8 flex flex-col justify-center items-center max-md:hidden">
             <div className="flex flex-col gap-3">
               {Array.from({ length: RoadMapDataList.length }).map(
                 (_, index) => {
@@ -255,7 +255,7 @@ useEffect(() => {
           </div>
 
           {/* RoadMap UL (Cards) */}
-          <ul className="roadmap-ul w-full relative flex flex-col gap-8 justify-start items-center max-w-[1200px] px-5 sm:h-screen md:h-[450px] lg:h-[500px] overflow-y-auto my-12 mx-auto font-[inter] text-white scroll-smooth">
+          <ul className="roadmap-ul w-full relative flex flex-col gap-8 justify-start items-center max-w-[1200px] pr-5 sm:h-screen md:h-[450px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
             {RoadMapDataList.map((eachCard, index) => (
               <RoadMapCard
                 key={eachCard.number}

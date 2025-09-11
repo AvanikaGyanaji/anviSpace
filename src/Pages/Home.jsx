@@ -127,18 +127,15 @@ const Home = () => {
             playsInline
             className="absolute top-0 left-0 w-screen h-[650px] max-md:h-[110vh] object-cover object-center bg-blend-color-burn -z-1"
           >
-            {/* Azure Blob Video 1 */}
-            <source
-              src="https://projectshudh01.blob.core.windows.net/anvitest/IMG_2118.MP4"
-              type="video/mp4"
-            />
-            {/* Azure Blob Video 2 */}
-            <source
-              src="https://projectshudh01.blob.core.windows.net/anvitest/about-bg.mp4"
-              type="video/mp4"
-            />
             {/* Local Static Fallback */}
-            <source src="/videos/about-bg.mp4" type="video/mp4" />
+            <source
+              src="/videos/about-bg-org.webm"
+              type="video/webm"
+            />
+            <source
+              src="/videos/about-bg.webm"
+              type="video/webm"
+            />
             {/* Fallback message */}
             Your browser does not support the video tag.
           </video>
@@ -176,7 +173,7 @@ const Home = () => {
                   product.id !== "ads-servicer"
                     ? "bg-blend-luminosity backdrop-blur-lg hover:bg-blend-normal hover:bg-[rgb(8 11 13)] px-3"
                     : ""
-                } max-md:bg-bottom hover:scale-101 bg-[#111111] hover-bg-[rgb(8 11 13)] overflow-hidden`}
+                } max-md:bg-bottom hover:scale-101 bg-[#111111] hover:bg-[#080b0d] overflow-hidden`}
                 style={product.style ? product.style : {}}
               >
                 <div className="flex flex-col justify-center text-left align-top gap-5 py-3 px-5 font-[Inter] text-[#FEFEFE]">
@@ -242,7 +239,7 @@ const Home = () => {
           </h3>
 
           <div className="p-3 md:p-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 lg:gap-4 max-w-7xl mx-auto font-[inter]">
-            {servicesList.map((service, idx) => (
+            {servicesList.map((service) => (
               <div
                 key={service.title}
                 className="servicecard cardAnim group space-y-4 p-1 rounded-xl shadow-lg hover:bg-[#D7ECF533] hover:p-1.5 hover:shadow-lg transition-all duration-300 cursor-pointer"
