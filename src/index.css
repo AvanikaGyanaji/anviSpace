@@ -55,7 +55,7 @@ body::-webkit-scrollbar-track {
   position: fixed;
 } */
 header li,
-header nav + span a {
+header nav+span a {
   transition: all 0.2s 0s ease-in-out;
   border-bottom: 2px solid transparent;
 }
@@ -77,10 +77,11 @@ header a:hover:not(.currentPageLink) {
 
 /* ========================== */
 /* HOME */
-.explore-btn{
+.explore-btn {
   background-color: #00000060 !important;
 }
-.coming-soon-btn{
+
+.coming-soon-btn {
   background-color: #000 !important;
 }
 
@@ -101,20 +102,24 @@ header a:hover:not(.currentPageLink) {
   width: 100%;
   height: 100%;
 }
+
 .star-bg-1 {
   opacity: 0.2;
   animation: starAnimation 200s linear infinite;
 }
+
 .star-bg-2 {
   transform: scale(0.3);
   opacity: 0.6;
   animation: starAnimation 300s linear infinite reverse;
 }
+
 .star-bg-3 {
   transform: scale(0.2);
   opacity: 0.4;
   animation: starAnimation 350s linear infinite forwards;
 }
+
 .star-bg-4 {
   transform: scale(0.4);
   opacity: 0.3;
@@ -126,10 +131,12 @@ header a:hover:not(.currentPageLink) {
     transform: rotate3d(0, 0, 1, 0deg) scale(1);
     opacity: inherit;
   }
+
   50% {
     transform: rotate3d(0, 0, 1, 180deg) scale(1.4);
     opacity: 0.9;
   }
+
   100% {
     transform: rotate3d(0, 0, 1, 360deg) scale(1);
     opacity: inherit;
@@ -139,9 +146,10 @@ header a:hover:not(.currentPageLink) {
 /* ========================== */
 
 /* About Section */
-.about-box video{
+.about-box video {
   background-image: url('/videos/about-bg.mp4');
 }
+
 /* ========================== */
 
 /* Mission Section */
@@ -150,21 +158,26 @@ header a:hover:not(.currentPageLink) {
 /* Contact Section  */
 .contact-section form {
   padding: 50px !important;
-  .form-Bgimg{
+
+  .form-Bgimg {
     background-image: url('/images/contact-formBg.jpg');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     filter: brightness(0.2);
   }
-  &::before, &::after{
+
+  &::before,
+  &::after {
     padding: 3.2px !important;
   }
-  label{
+
+  label {
     font-family: inter, 'sans-serif' !important;
     font-size: 18px !important;
     font-weight: 500 !important;
   }
+
   input,
   textarea {
     padding-inline: 10px;
@@ -191,7 +204,7 @@ header a:hover:not(.currentPageLink) {
 
 
 /* Careers Page */
-.careers-apply-btn{
+.careers-apply-btn {
   color: #FFF !important;
   font-family: "Shinko Sans";
   font-size: 18px !important;
@@ -206,13 +219,20 @@ header a:hover:not(.currentPageLink) {
   background: linear-gradient(270deg, #000 5%, #161616 90%) !important;
   background-blend-mode: soft-light;
 }
+
 /* .careers-apply-btn::before, .careers-apply-btn::after{
 } */
 
 
 
 /* MISSIONS PAGE */
-.about-space-btn{
+#explore-btn,
+#explore-btn::before,
+#explore-btn::after {
+  animation-delay: 0s !important;
+}
+
+.about-space-btn {
   font-size: 16px !important;
   font-weight: 400 !important;
   letter-spacing: 1px !important;
@@ -220,17 +240,16 @@ header a:hover:not(.currentPageLink) {
   padding: 5px 15px !important;
   border-radius: 5px !important;
   color: #FFF !important;
+  font-family: Shinko Sans;
 }
-.roadmap-ul{
-  scrollbar-width:none;
+
+.roadmap-ul {
+  scrollbar-width: none;
   scrollbar-color: #fff;
 }
 
 
 /* Products Section Card */
-.products-li-box:nth-child(2) img{
+.products-li-box:nth-child(2) img {
   object-fit: contain !important;
 }
-/* .products-li-box:nth-child(2) {
-  background-color: 
-} */

@@ -6,14 +6,25 @@ import { servicesList } from "../Utils/ServicesList";
 import { productsList } from "../Utils/ProductsList";
 import ScrollToHash from "../Utils/ScrollToHash";
 
+import {useScrollTextAnim} from "../Hooks/ScrollAnimationGSAP";
 
 const Home = () => {
   const introRef = useRef(null);
   const headlineRef = useRef(null);
-  const servicesRef = useRef([]);
+  const aboutRef = useRef(null);
+  const productsRef = useRef([]);
+  const productBoxRef = useRef(null);
+  const servicesRef = useRef(null);
+
+  // Apply reusable animation
+  useScrollTextAnim(headlineRef);
+  useScrollTextAnim(aboutRef);
+  useScrollTextAnim(productBoxRef);
+  useScrollTextAnim(servicesRef);
+
 
   // scroll to hash
-  ScrollToHash()
+  ScrollToHash();
 
   // GSAP for Hero Section BG
   useEffect(() => {
@@ -79,27 +90,22 @@ const Home = () => {
         ></div>
 
         {/* Hero Content */}
-        <div className="w-full z-3 max-w-[1100px] min-h-[25vh] mt-[0vh] text-center flex flex-col justify-center align-middle gap-[2px]">
-          <h1 className="text-[66px] m-0 text-[#FEFEFE] font-[600] font-[inter] tracking-[2px] leading-[64px]">
-            {/* <span className="tracking-tight">Designing</span> Self-Sustaining <br />
-            <span className="text-[44px] font-[400] tracking-tight">Ecosystems</span> <span className="text-[48px] font-[800]">Beyond Earth.</span> */}
-            <span className="text-[48px]">Foundation for a Sustainable Space Future</span>
-            <br />
-            <span className="text-[44px] font-[400] tracking-tight">Ecosystems</span> <span className="text-[48px] font-[800]">Beyond Earth.</span>            
+        <div ref={headlineRef} className="w-full z-3 max-w-[1100px] min-h-[50vh] mt-[-10vh] text-center flex flex-col justify-center align-middle gap-[2px]">
+          <h1 className="text-[36px] md:text-[48px] px-3 m-0 text-[#FEFEFE] font-[500] font-[inter] tracking-[-1.3px] capitalize">
+            Foundation for a Sustainable{" "}
+            <span className="inline-block whitespace-nowrap">
+              {" "}
+              Space Future
+            </span>
           </h1>
-
-          {/* <p className="text-[16px] max-w-[750px] m-auto text-[#FEFEFE] px-5 tracking-[1px] font-[inter] font-[300]">
-            “We build modular robotic systems from debris removal to intelligent
-            rovers powering our mission, SPACE KARKANA for sustainable space
-            exploration”
-          </p> */}
-          {/* <p className="text-[20px] max-w-[750px] m-auto text-[#ccc] px-5 tracking-[1px] font-[300]">
-            Ecosystems <strong className="font-extrabold">Beyond Earth.</strong>
-          </p> */}
+          <p className="text-[20px] font-[400] text-[#FEFEFE] tracking-tight font-[inter] capitalize">
+            Ecosystem Beyond Earth.
+          </p>
           <a
             href="#about"
             target=""
-            className="explore-btn animate-pulse figma-btn tracking-[4px] cursor-pointer hover:scale-102 text-[34px] font-[400] mt-[30px] text-white uppercase transition-all duration-150"
+            id="explore-btn"
+            className="explore-btn animate-pulse figma-btn tracking-[4px] cursor-pointer capitalize hover:scale-102 text-[34px] font-[400] mt-[30px] text-white transition-all duration-150"
           >
             Explore
           </a>
@@ -111,15 +117,32 @@ const Home = () => {
         id="about"
         className="about-section h-auto max-md:mb-10 p-2 pt-0 relative z-2 grid place-content-center place-items-center w-full text-white bg-black"
       >
-        <div className="about-box w-screen min-h-[90vh] md:min-h-[600px] max-h-[900px] max-md:h-[80vh] relative py-8 pt-15 px-2 text-center h-full flex flex-col justify-start align-middle gap-5">
+        <div
+          ref={aboutRef}
+          className="about-box w-screen min-h-[90vh] md:min-h-[600px] max-h-[900px] max-md:h-[80vh] relative py-8 pt-15 px-2 text-center h-full flex flex-col justify-start align-middle gap-5">
           <video
-            src="/videos/about-bg.mp4"
-            muted={true}
-            autoPlay={true}
+            muted
+            autoPlay
             loop
+            playsInline
             className="absolute top-0 left-0 w-screen h-[650px] max-md:h-[110vh] object-cover object-center bg-blend-color-burn -z-1"
-            loading="lazy"
-          ></video>
+          >
+            {/* Azure Blob Video 1 */}
+            <source
+              src="https://projectshudh01.blob.core.windows.net/anvitest/IMG_2118.MP4"
+              type="video/mp4"
+            />
+            {/* Azure Blob Video 2 */}
+            <source
+              src="https://projectshudh01.blob.core.windows.net/anvitest/about-bg.mp4"
+              type="video/mp4"
+            />
+            {/* Local Static Fallback */}
+            <source src="/videos/about-bg.mp4" type="video/mp4" />
+            {/* Fallback message */}
+            Your browser does not support the video tag.
+          </video>
+
           <h3 className="text-[28px] tracking-[2px] uppercase font-[Shinko Sans]">
             About Us
           </h3>
@@ -137,6 +160,7 @@ const Home = () => {
       {/* PRODUCTS SECTION */}
       <section
         id="products"
+        ref={productBoxRef}
         className="products-section relative z-2 pt-15 grid place-content-center place-items-center w-full p-2 text-white"
       >
         <div className="products-box w-full pt-2 pb-4 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
@@ -147,11 +171,12 @@ const Home = () => {
             {productsList.map((product, idx) => (
               <li
                 key={idx}
-                className={`products-li-box group w-full max-w-[1100px] max-md:flex-col-reverse md:max-h-[300px] m-auto flex justify-between max-md:justify-center max-md:align-middle align-top gap-5 md:gap-10 lg:gap-20 cursor-pointer transition-all duration-200 ${
+                ref={(el) => (productsRef.current[idx] = el)}
+                className={`products-li-box cardAnim group w-full max-w-[1100px] max-md:flex-col-reverse md:max-h-[300px] m-auto flex justify-between max-md:justify-center max-md:align-middle align-top gap-5 md:gap-10 lg:gap-20 cursor-pointer transition-all duration-200 ${
                   product.id !== "ads-servicer"
                     ? "bg-blend-luminosity backdrop-blur-lg hover:bg-blend-normal hover:bg-[rgb(8 11 13)] px-3"
                     : ""
-                } max-md:bg-bottom hover:scale-101 bg-[#111111] overflow-hidden`}
+                } max-md:bg-bottom hover:scale-101 bg-[#111111] hover-bg-[rgb(8 11 13)] overflow-hidden`}
                 style={product.style ? product.style : {}}
               >
                 <div className="flex flex-col justify-center text-left align-top gap-5 py-3 px-5 font-[Inter] text-[#FEFEFE]">
@@ -208,10 +233,10 @@ const Home = () => {
         id="services"
         className="services-section pt-10 relative z-9 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="services-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div 
+        ref={servicesRef} className="services-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
           <h3
             className="text-[28px] pb-10 font-[400] text-white tracking-[2px] uppercase"
-            ref={headlineRef}
           >
             OUR SERVICES
           </h3>
@@ -220,8 +245,7 @@ const Home = () => {
             {servicesList.map((service, idx) => (
               <div
                 key={service.title}
-                ref={(el) => (servicesRef.current[idx] = el)}
-                className="servicecard group space-y-4 p-1 rounded-xl shadow-lg hover:bg-[#D7ECF533] hover:p-1.5 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                className="servicecard cardAnim group space-y-4 p-1 rounded-xl shadow-lg hover:bg-[#D7ECF533] hover:p-1.5 hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
                 <div className="overflow-hidden w-full aspect-[16/9] bg-gray-950 object-center rounded-lg hover:rounded-none transition-all duration-350 hover:shadow-xl hover:shadow-gray-900">
                   <img

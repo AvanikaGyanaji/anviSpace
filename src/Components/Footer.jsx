@@ -22,7 +22,7 @@ const Footer = () => (
       </div>
 
       {/* Contact Infos */}
-      <div className="space-y-8 leading-snug order-3 md:order-1 place-items-start">
+      <div className="space-y-5 leading-normal order-3 md:order-1 place-items-start">
         <a
           href="mailto:info@anvi.co"
           className="flex justify-center align-middle gap-3 place-items-center"
@@ -32,15 +32,6 @@ const Footer = () => (
           </span>
           <span className="hover:underline text-gray-300">info@anvi.co</span>
         </a>
-        <Link
-          href=""
-          className="flex justify-center align-middle gap-3 place-items-center"
-        >
-          <span className="font-semibold text-gray-100">
-            <Phone size={18} />
-          </span>
-          <span>+91**********</span>
-        </Link>
         <Link
           to="https://maps.app.goo.gl/rGCJomuj6BP18opS9"
           target="_blank"
