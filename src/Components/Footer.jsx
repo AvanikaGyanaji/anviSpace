@@ -76,15 +76,15 @@ const Footer = () => (
       </div>
 
       {/* Contact Us Button */}
-      <a
-        href="#contact"
+      <Link
+        to="/#contact"
         target="_self"
         className="self-center text-center order-1 md:order-3 h-max w-100% cursor-pointer hover:scale-102k md:self-auto bg-white hover:bg-black hover:text-white hover:border-1 hover:border-gray-50 text-black font-semibold px-6 py-2 rounded-full shadow-lg transition duration-300"
         // onClick={() => alert("Contact us clicked")}
         type="button"
       >
         Contact US
-      </a>
+      </Link>
     </div>
     <p className="text-center text-white mt-10">&copy; 2025 anvispace.co</p>
   </footer>

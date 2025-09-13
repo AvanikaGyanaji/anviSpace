@@ -6,10 +6,11 @@ import { servicesList } from "../Utils/ServicesList";
 import { productsList } from "../Utils/ProductsList";
 import ScrollToHash from "../Utils/ScrollToHash";
 
-import {useScrollTextAnim} from "../Hooks/ScrollAnimationGSAP";
+import { useScrollTextAnim } from "../Hooks/ScrollAnimationGSAP";
 
 const Home = () => {
   const introRef = useRef(null);
+  const starBoxRef = useRef(null);
   const headlineRef = useRef(null);
   const aboutRef = useRef(null);
   const productsRef = useRef([]);
@@ -21,7 +22,6 @@ const Home = () => {
   useScrollTextAnim(aboutRef);
   useScrollTextAnim(productBoxRef);
   useScrollTextAnim(servicesRef);
-
 
   // scroll to hash
   ScrollToHash();
@@ -37,8 +37,8 @@ const Home = () => {
     // Step 1: Fade in + scale bump
     tl.fromTo(
       introRef.current,
-      { opacity: 0.5, scale: 1, rotate: 0 },
-      { opacity: 1, scale: 1.1, rotate: 2, duration: 1.2, ease: "power3.in" }
+      { opacity: 0.5, scale: 1, rotate: -2 },
+      { opacity: 1, scale: 1.1, rotate: 0, duration: 1.2, ease: "power3.in" }
     );
 
     // Step 2: Stay still for 5s (just a delay)
@@ -56,24 +56,37 @@ const Home = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (starBoxRef.current) {
+      gsap.fromTo(
+        starBoxRef.current,
+        { opacity: 0 }, // start
+        { opacity: 1, duration: 2, delay: 6, ease: "power1.inOut" } // end
+      );
+    }
+  }, []);
+
   return (
     <>
       {/* Star Animation Background Image */}
-      <div className="star-animate fixed top-0 left-0 w-[100%] h-[100%] aspect-square z-0 overflow-visible">
+      <div
+        ref={starBoxRef}
+        className="star-animate fixed top-0 left-0 w-[100%] h-[100%] aspect-square z-0 overflow-visible"
+      >
         <div
-          className="star-animate-bg star-bg-1"
+          className="star-animate-bg star-bg-1 left-10"
           style={{ animationDelay: 10 }}
         ></div>
         <div
-          className="star-animate-bg star-bg-2"
+          className="star-animate-bg star-bg-2 right-2"
           style={{ animationDelay: 10 }}
         ></div>
         <div
-          className="star-animate-bg star-bg-3"
+          className="star-animate-bg star-bg-3 left-5 top-5"
           style={{ animationDelay: 10 }}
         ></div>
         <div
-          className="star-animate-bg star-bg-4"
+          className="star-animate-bg star-bg-4 right-5 bottom-3"
           style={{ animationDelay: 10 }}
         ></div>
       </div>
@@ -81,17 +94,20 @@ const Home = () => {
       {/* Home - Hero Section   */}
       <section
         id="home"
-        className="hero-section section1 w-full h-[120vh] lg:h-[120vh] overflow-y-hidden bg-[#05080a] relative grid place-items-center overflow-hidden font-[Shinko Sans]"
+        className="hero-section section1 w-full h-screen max-md:h-[100vh] md:[90vh] lg:h-[90vh] overflow-y-hidden bg-[#05080a] relative grid place-items-center overflow-hidden font-[Shinko Sans]"
       >
         <div
           ref={introRef}
-          className="absolute top-15 md:top-0 z-2 w-screen h-screen lg:h-[110vh] bg-cover bg-top bg-no-repeat object-center aspect-video brightness-60"
-          style={{ backgroundImage: 'url("/images/earth-hero-bg.jpg")' }}
+          className="absolute top-15 md:top-0 z-2 w-screen h-screen md:h-[100vh] lg:h-[110vh] bg-cover bg-top bg-no-repeat object-center aspect-video brightness-60"
+          style={{ backgroundImage: 'url("/images/earth-hero-bg.jpg")', filter: "brightness(0.45) contrast(1.1)" }}
         ></div>
 
         {/* Hero Content */}
-        <div ref={headlineRef} className="w-full z-3 max-w-[1100px] min-h-[50vh] mt-[-10vh] text-center flex flex-col justify-center align-middle gap-[2px]">
-          <h1 className="text-[36px] md:text-[48px] px-3 m-0 text-[#FEFEFE] font-[500] font-[inter] tracking-[-1.3px] capitalize">
+        <div
+          ref={headlineRef}
+          className="w-full z-3 max-w-[1100px] min-h-auto place-items-center mt-[10vh] text-center flex flex-col justify-center align-middle gap-[2px]"
+        >
+          <h1 className="text-[36px] md:text-[48px] px-3 m-0 text-[#fff] font-[500] font-[inter] tracking-[-1.3px] capitalize">
             Foundation for a Sustainable{" "}
             <span className="inline-block whitespace-nowrap">
               {" "}
@@ -110,40 +126,43 @@ const Home = () => {
             Explore
           </a>
         </div>
+
+        {/* bg black shade */}
+        <div
+          className="aboutus-blackbg absolute top-[85%] h-[250px] w-full z-2"
+          style={{
+            background: "linear-gradient(to bottom, transparent, black)",
+          }}
+        ></div>
       </section>
 
       {/* ABOUT SECTION */}
       <section
         id="about"
-        className="about-section h-auto max-md:mb-10 p-2 pt-0 relative z-2 grid place-content-center place-items-center w-full text-white bg-black"
+        className="about-section overflow-hidden h-auto xl:min-h-[800px] max-md:mb-10 pt-0 relative z-2 grid place-content-center place-items-center w-full text-white bg-black"
       >
         <div
           ref={aboutRef}
-          className="about-box w-screen min-h-[90vh] md:min-h-[600px] max-h-[900px] max-md:h-[80vh] relative py-8 pt-15 px-2 text-center h-full flex flex-col justify-start align-middle gap-5">
+          className="about-box w-screen min-h-[90vh] md:min-h-[600px] xl:min-h-[800px] max-h-[800px] max-md:h-[80vh] relative pb-0 pt-0 px-2 text-center h-full flex flex-col justify-center place-content-center align-middle gap-[12px]"
+        >
           <video
             muted
             autoPlay
             loop
             playsInline
-            className="absolute top-0 left-0 w-screen h-[650px] max-md:h-[110vh] object-cover object-center bg-blend-color-burn -z-1"
+            className="absolute opacity-[0.7] brightness-[0.2] top-0 left-0 w-screen h-[650px] max-md:h-[110vh] xl:min-h-[899px] object-cover object-center bg-blend-color-burn -z-1"
           >
             {/* Local Static Fallback */}
-            <source
-              src="/videos/about-bg-org.webm"
-              type="video/webm"
-            />
-            <source
-              src="/videos/about-bg.webm"
-              type="video/webm"
-            />
+            <source src="/videos/about-bg-org.webm" type="video/webm" />
+            <source src="/videos/about-bg.webm" type="video/webm" />
             {/* Fallback message */}
             Your browser does not support the video tag.
           </video>
 
-          <h3 className="text-[28px] tracking-[2px] uppercase font-[Shinko Sans]">
+          <h3 className="text[28px] text-[24px] tracking-[2px] uppercase font-[Shinko Sans]">
             About Us
           </h3>
-          <p className="about-para text-[16px] font-[400] font-[Inter] text-white text-center leading-[22px] max-w-[900px] mx-auto px-3">
+          <p className="about-para text-[16px] font-[300] self-center text-shadow-2xs text-shadow-gray-950 font-[Inter] text-white text-center tracking-[0.1px] leading-[26px] max-w-[860px] mx-auto px-3">
             Anvi Space aims to develop advanced space robotics and intelligent
             satellite technologies, for safer, more sustainable orbital
             operations. From satellite with robotic arms for servicing and
@@ -152,28 +171,31 @@ const Home = () => {
             self-reliant, sustainable space ecosystem for future generations.
           </p>
         </div>
+        {/* about bg black shade */}
+        <div className="aboutus-blackbg absolute -bottom-3.5 lg:-bottom-6 h-[200px] w-full bg-linear-to-b from-transparent to-black"></div>
       </section>
 
       {/* PRODUCTS SECTION */}
       <section
         id="products"
         ref={productBoxRef}
-        className="products-section relative z-2 pt-15 grid place-content-center place-items-center w-full p-2 text-white"
+        className="products-section relative z-2 pt-30 mt-[-30px] grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div className="products-box w-full pt-2 pb-4 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
+        <div className="products-box w-full pt-2 pb-4 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-[72px]">
           <h3 className="text-[28px] font-[400] text-white tracking-[2px] uppercase">
             our products
           </h3>
-          <ul className="products-ul-box mt-5 w-full max-w-[1600px] flex flex-col justify-between align-middle gap-x-[10vw] gap-y-[20px]">
+          <ul className="products-ul-box mt-0 w-full max-w-[1600px] flex flex-col justify-between align-middle gap-x-[10vw] gap-y-[96px]">
             {productsList.map((product, idx) => (
               <li
                 key={idx}
                 ref={(el) => (productsRef.current[idx] = el)}
-                className={`products-li-box cardAnim group w-full max-w-[1100px] max-md:flex-col-reverse md:max-h-[300px] m-auto flex justify-between max-md:justify-center max-md:align-middle align-top gap-5 md:gap-10 lg:gap-20 cursor-pointer transition-all duration-200 ${
+                id="products-card"
+                className={`products-li-box cardAnim group w-full max-w-[1100px] max-md:flex-col-reverse md:max-h-[300px] m-auto flex justify-between max-md:justify-center max-md:align-middle align-top gap-5 md:gap-10 lg:gap-20 cursor-pointer rounded-[12px] transition-all duration-500 ${
                   product.id !== "ads-servicer"
-                    ? "bg-blend-luminosity backdrop-blur-lg hover:bg-blend-normal hover:bg-[rgb(8 11 13)] px-3"
+                    ? "bg-blend-luminosity backdrop-blur-lg hover:bg-blend-normal px-3"
                     : ""
-                } max-md:bg-bottom hover:scale-101 bg-[#111111] hover:bg-[#080b0d] overflow-hidden`}
+                } max-md:bg-bottom bg-[#111111] overflow-hidden`}
                 style={product.style ? product.style : {}}
               >
                 <div className="flex flex-col justify-center text-left align-top gap-5 py-3 px-5 font-[Inter] text-[#FEFEFE]">
@@ -230,11 +252,11 @@ const Home = () => {
         id="services"
         className="services-section pt-10 relative z-9 grid place-content-center place-items-center w-full p-2 text-white"
       >
-        <div 
-        ref={servicesRef} className="services-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5">
-          <h3
-            className="text-[28px] pb-10 font-[400] text-white tracking-[2px] uppercase"
-          >
+        <div
+          ref={servicesRef}
+          className="services-box w-full py-8 pt-10 px-2 text-center h-full flex flex-col justify-center align-middle place-items-center gap-5"
+        >
+          <h3 className="text-[28px] pb-10 font-[400] text-white tracking-[2px] uppercase">
             OUR SERVICES
           </h3>
 
@@ -244,7 +266,7 @@ const Home = () => {
                 key={service.title}
                 className="servicecard cardAnim group space-y-4 p-1 rounded-xl shadow-lg hover:bg-[#D7ECF533] hover:p-1.5 hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
-                <div className="overflow-hidden w-full aspect-[16/9] bg-gray-950 object-center rounded-lg hover:rounded-none transition-all duration-350 hover:shadow-xl hover:shadow-gray-900">
+                <div className="overflow-hidden w-full aspect-auto [16/9] bg-gray-950 object-center group-hover:rounded-lg transition-all duration-350 group-hover:shadow-xl group-hover:shadow-gray-900">
                   <img
                     src={service.imgSrc}
                     alt={service.title}
@@ -288,7 +310,7 @@ const Home = () => {
           </p> */}
 
           {/* Contact Form */}
-          <ContactForm />
+          <ContactForm isHavingCv={false} />
         </div>
       </section>
     </>

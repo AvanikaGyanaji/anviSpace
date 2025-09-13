@@ -1,10 +1,12 @@
 const RoadMapCard = ({ data, cardIndex }) => {
+
   if (!data) return <p>No Data</p>;
+  // console.log(cardIndex+1, Number(data.index))
 
   return (
     <li
       className="roadmap-card max-w-6xl w-full relative md:sticky top-[20px] z-1 
-                 bg-black rounded-2xl border border-[#282828] 
+                 bg-black rounded-2xl 
                  py-[20px] px-[25px] lg:p-[48px] 
                  flex max-md:flex-wrap flex-row justify-between items-center 
                 max-md:gap-4"
@@ -47,14 +49,14 @@ const RoadMapCard = ({ data, cardIndex }) => {
       <div className="flex flex-col text-left">
         <div className="flex items-start gap-6">
           <div className="md:max-w-[350px] tracking-wide">
-            <h2 className="text-lg md:text-[18px] font-[500]">
+            <h2 className="text-lg md:text-[18px] font-[500] leading-[20px]">
               {data.phaseTitle} :{" "}
               <span className="font-normal text-[14px]">{data.phaseDesc}</span>
             </h2>
 
             <div className="space-y-2 mt-4">
               {data.missions?.map((mission, idx) => (
-                <div key={idx}>
+                <div key={idx} className="flex flex-col gap-[20px]">
                   <h2 className="text-lg md:text-[18px] font-[500]">
                     {mission.title}
                   </h2>

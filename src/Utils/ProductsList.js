@@ -4,8 +4,7 @@ export const productsList = [
     title: "“The Rise of anvi From Lauch To Legacy-We Build For The Cosmos”",
     img_url: "/logos/space-karkana-bg.png",
     exploreLabel: "",
-    // exploreLink: "/missions/#roadmap",
-    exploreLink: "/missions/#roadmap",
+    exploreLink: "/missions",
     style: {
       backgroundImage: `url("/images/prod-space-karkana-bgImg.jpg")`,
       backgroundPosition: "top",
@@ -22,10 +21,11 @@ export const productsList = [
     exploreLink: "",
     bg_color: "#03040600",
     style: {
-      backgroundImage: `url("/images/prod-celest-bgImg.jpg")`,
-      backgroundPosition: "50% 40%",
+      backgroundImage: `url("/images/prod-celest-bgImg2.jpg")`,
+      backgroundPosition: "top right",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
+      filter: 'brightness(0.8)',
     },
   },
   {

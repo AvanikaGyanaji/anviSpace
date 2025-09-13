@@ -2,7 +2,7 @@ export const pagesLinksList = {
     'Home': '/#home',
     'About': '/#about',
     'Products': '/#products',
-    'Missions': '/missions',
+    'Missions': '/missions/#roadmap',
     'Services': '/#services',
     'Careers': '/careers',
     'Contact Us': '/#contact'

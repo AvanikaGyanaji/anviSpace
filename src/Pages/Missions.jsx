@@ -5,7 +5,7 @@ import RoadMapCard from "../Components/RoadMapCard";
 import { pagesLinksList } from "../Utils/PagesLinksList";
 import { useLocation } from "react-router-dom";
 
-import {useScrollTextAnim} from "../Hooks/ScrollAnimationGSAP";
+import { useScrollTextAnim } from "../Hooks/ScrollAnimationGSAP";
 
 const Missions = () => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
@@ -13,9 +13,9 @@ const Missions = () => {
   const missionHeroRef = useRef(null);
   const missionKarkanaRef = useRef(null);
   const missionRoadmapRef = useRef(null);
-  
-  useScrollTextAnim(missionHeroRef)
-  useScrollTextAnim(missionKarkanaRef)
+
+  useScrollTextAnim(missionHeroRef);
+  useScrollTextAnim(missionKarkanaRef);
   // useScrollTextAnim(missionRoadmapRef)
 
   useEffect(() => {
@@ -45,51 +45,50 @@ const Missions = () => {
     }
   }, [location]);
 
-useEffect(() => {
-  const container = document.querySelector(".roadmap-ul");
-  const cards = container?.querySelectorAll(".roadmap-card");
-  if (!container || !cards.length) return;
+  useEffect(() => {
+    const container = document.querySelector(".roadmap-ul");
+    const cards = container?.querySelectorAll(".roadmap-card");
+    if (!container || !cards.length) return;
 
-  // 👉 Initial state
-  container.scrollTo({ top: 0, behavior: "instant" });
-  setActiveCardIndex(0);
+    // 👉 Initial state
+    container.scrollTo({ top: 0, behavior: "instant" });
+    setActiveCardIndex(0);
 
-  let hasUserScrolled = false;
+    let hasUserScrolled = false;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (!hasUserScrolled) return; // ❌ block updates until scroll starts
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!hasUserScrolled) return; // ❌ block updates until scroll starts
 
-      entries.forEach((entry) => {
-        const index = Number(entry.target.getAttribute("data-index"));
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-index"));
 
-        if (entry.isIntersecting) {
-          setActiveCardIndex(index);
-        } else if (entry.boundingClientRect.top > 0) {
-          setActiveCardIndex(index - 1 >= 0 ? index - 1 : 0);
-        }
-      });
-    },
-    {
-      root: container,
-      threshold: [0.5],
-    }
-  );
+          if (entry.isIntersecting) {
+            setActiveCardIndex(index);
+          } else if (entry.boundingClientRect.top > 0) {
+            setActiveCardIndex(index - 1 >= 0 ? index - 1 : 0);
+          }
+        });
+      },
+      {
+        root: container,
+        threshold: [0.5],
+      }
+    );
 
-  cards.forEach((card) => observer.observe(card));
+    cards.forEach((card) => observer.observe(card));
 
-  // Detect first user scroll → then enable updates
-  const enableScrollTracking = () => {
-    hasUserScrolled = true;
-  };
-  container.addEventListener("scroll", enableScrollTracking, { once: true });
+    // Detect first user scroll → then enable updates
+    const enableScrollTracking = () => {
+      hasUserScrolled = true;
+    };
+    container.addEventListener("scroll", enableScrollTracking, { once: true });
 
-  return () => {
-    cards.forEach((card) => observer.unobserve(card));
-    container.removeEventListener("scroll", enableScrollTracking);
-  };
-}, []);
-
+    return () => {
+      cards.forEach((card) => observer.unobserve(card));
+      container.removeEventListener("scroll", enableScrollTracking);
+    };
+  }, []);
 
   return (
     <>
@@ -107,7 +106,10 @@ useEffect(() => {
         </div>
 
         {/* Hero Content Box */}
-        <div ref={missionHeroRef} className="w-screen z-2 relative h-screen m-auto px-2 flex flex-col gap-[20px] justify-center align-middle place-items-center aspect-auto text-center font-[inter]">
+        <div
+          ref={missionHeroRef}
+          className="w-screen z-2 relative h-screen m-auto px-2 flex flex-col gap-[20px] justify-center align-middle place-items-center aspect-auto text-center font-[inter]"
+        >
           <div
             className="w-screen -z-1 absolute max-w-7xl h-screen max-h-[99vh]"
             style={{
@@ -158,7 +160,10 @@ useEffect(() => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div ref={missionKarkanaRef} className="w-full flex flex-col md:flex-row justify-around align-middle items-end gap-2 relative p-10 px-5">
+        <div
+          ref={missionKarkanaRef}
+          className="w-full flex flex-col md:flex-row justify-around align-middle items-end gap-2 relative p-10 px-5"
+        >
           <div className="flex flex-col md:max-w-full max-md:w-full md:w-[623px] min-h-[387px] items-start gap-[30px] relative">
             <div className="relative self-stretch w-full h-[178px]">
               <div className="inline-flex items-center justify-center gap-2.5 p-2 absolute top-0 left-0 rounded-lg border border-solid border-[#fefefe]">
@@ -213,7 +218,10 @@ useEffect(() => {
         className="w-full max-w-[1400px] m-auto text-center pt-[60px] py-4"
       >
         {/* Content Top */}
-        <div ref={missionRoadmapRef} className="inline-flex w-full flex-col items-center gap-3 relative">
+        <div
+          ref={missionRoadmapRef}
+          className="inline-flex w-full flex-col items-center gap-3 relative"
+        >
           <div className="flex flex-col gap-3.5 font-[inter] self-stretch w-full items-center relative flex-[0_0_auto]">
             <div className="inline-flex justify-center gap-2.5 items-center relative flex-[0_0_auto]">
               <p className="relative w-full mt-[-1.00px] font-medium text-white text-[40px] text-center tracking-[-1.00px] leading-[52px]">
@@ -239,7 +247,7 @@ useEffect(() => {
               {Array.from({ length: RoadMapDataList.length }).map(
                 (_, index) => {
                   // console.log('indexxx : ', index, activeCardIndex)
-                  return(
+                  return (
                     <div
                       key={index}
                       className={`w-1 h-12 rounded-full transition-all duration-500 border ${
@@ -248,14 +256,14 @@ useEffect(() => {
                           : "bg-transparent border-gray-500"
                       }`}
                     />
-                    )
-                  }
+                  );
+                }
               )}
             </div>
           </div>
 
           {/* RoadMap UL (Cards) */}
-          <ul className="roadmap-ul w-full relative flex flex-col gap-8 justify-start items-center max-w-[1200px] pr-5 sm:h-screen md:h-[450px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
+          <ul className="roadmap-ul w-full relative flex flex-col gap-y-[80px] justify-start items-center max-w-[1200px] pr-5 sm:h-screen md:h-[510px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
             {RoadMapDataList.map((eachCard, index) => (
               <RoadMapCard
                 key={eachCard.number}

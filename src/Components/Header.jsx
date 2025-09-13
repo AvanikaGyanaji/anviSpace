@@ -30,11 +30,18 @@ const Header = () => {
       const targetId = location.hash.replace("#", "");
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        
-        window.history.replaceState(null,'',location.pathname+window.location.search)
+        window.history.replaceState(
+          null,
+          "",
+          location.pathname + window.location.search
+        );
         targetElement.scrollIntoView({ behavior: "smooth" });
         // console.log(location.pathname+window.location.search);
-        window.history.replaceState(null,'',location.pathname+window.location.search)
+        window.history.replaceState(
+          null,
+          "",
+          location.pathname + window.location.search
+        );
       }
     }
   }, [location]);
@@ -57,6 +64,7 @@ const Header = () => {
       return "currentPageLink";
     }
 
+    // console.log(link, location.pathname, pagesLinksList);
     return "";
   };
 

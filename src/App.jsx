@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { pagesLinksList } from "./Utils/PagesLinksList";
 
 import IntroWebEffect from "./Components/IntroWebEffect";
-import { WebTitleEffect } from "./Utils/WebTitleEffect";
 
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -31,15 +30,11 @@ const App = () => {
     }
   }, []);
 
-  useEffect(() => {
-    WebTitleEffect()
-  }, [])
-
   return (
     <BrowserRouter>
       <IntroWebEffect />
       <Header />
-      <main className="w-screen min-h-screen overflow-x-hidden relative bg-[#030406]">
+      <main className="w-screen min-h-screen overflow-hidden relative bg-[#030406]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path={pagesLinksList.Careers} element={<Careers />} />

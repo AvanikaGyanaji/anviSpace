@@ -68,7 +68,7 @@
   position: fixed;
   filter: none;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-  animation: FadeSlideInLogo 5s ease-in-out 1s 1 forwards;
+  animation: FadeSlideInLogo 4.8s ease-in-out 1s 1 forwards;
   /* , IntroLogotoHeader 2.5s ease-in-out 5s 1 forwards; */
 }
 
@@ -79,7 +79,7 @@
     -moz-box-shadow: 0 -20px 120px 30px transparent;
     opacity: 1;
   }
-  50% {
+  20% {
     box-shadow: 0 -20px 120px 30px #fafafa90;
     -webkit-box-shadow: 0 -20px 120px 30px #fafafa90;
     -moz-box-shadow: 0 -20px 120px 30px #fafafa90;
@@ -125,7 +125,8 @@
   }
 
   80% {
-    transform: translate(0vw, -30vh);
+    /* transform: translate(0vw, -30vh); */
+    transform: translate(0vw, -200px);
     max-width: 400px;
     opacity: 1;
   }

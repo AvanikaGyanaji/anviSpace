@@ -189,7 +189,9 @@ header a:hover:not(.currentPageLink) {
     border: 0.5px solid #999999;
     border-radius: 8px;
   }
+}
 
+#contact-form {
   button {
     background-color: #FEFEFE;
     box-shadow: 0px 0px 20px 0px #33BBFF4D;
@@ -248,8 +250,45 @@ header a:hover:not(.currentPageLink) {
   scrollbar-color: #fff;
 }
 
+.roadmap-card {
+  border: 0;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.roadmap-card.active-card{
+  border: 1px solid #282828;
+  /* box-shadow: 0 0 10px rgba(40,40,40,0.3); */
+}
+
 
 /* Products Section Card */
+#products-card{
+  transition: filter 2s ease-in-out, transform 0.2s ease-in-out;
+}
+#products-card:hover{
+  /* border-radius: 0px; */
+  filter: none;
+  transform: scale(1.01);
+  mix-blend-mode: normal;
+  background-blend-mode: normal;
+}
+.products-li-box{
+  min-height: 300px !important;
+}
+.products-li-box:nth-child(2) {
+  filter: brightness(0.5) contrast(1.1) !important;
+  /* background-blend-mode: overlay; */
+}
 .products-li-box:nth-child(2) img {
   object-fit: contain !important;
+  margin-right: 60px;
+  max-width: 250px !important;
+  @media screen and (max-width: 767px){
+    /* max-width: 200px !important; */
+    align-self: center;
+    margin: auto;
+  }
+}
+
+.products-li-box:nth-child(3) {
+  background-color: rgb(8, 11, 13) !important;
 }
