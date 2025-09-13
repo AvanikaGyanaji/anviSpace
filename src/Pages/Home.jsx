@@ -172,7 +172,7 @@ const Home = () => {
           </p>
         </div>
         {/* about bg black shade */}
-        <div className="aboutus-blackbg absolute -bottom-3.5 lg:-bottom-6 h-[200px] w-full bg-linear-to-b from-transparent to-black"></div>
+        <div className="aboutus-blackbg absolute -bottom-6 md:-bottom-6.5 lg:-bottom-6.1 h-[200px] w-full bg-linear-to-b from-transparent to-black"></div>
       </section>
 
       {/* PRODUCTS SECTION */}
