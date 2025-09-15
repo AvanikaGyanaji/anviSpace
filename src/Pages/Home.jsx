@@ -150,7 +150,7 @@ const Home = () => {
             autoPlay
             loop
             playsInline
-            className="absolute opacity-[0.7] brightness-[0.2] top-0 left-0 w-screen h-[650px] max-md:h-[110vh] xl:min-h-[899px] object-cover object-center bg-blend-color-burn -z-1"
+            className="absolute opacity-[0.7] brightness-[0.4] top-0 left-0 w-screen h-[650px] max-md:h-[110vh] xl:min-h-[899px] object-cover object-center bg-blend-color-burn -z-1"
           >
             {/* Local Static Fallback */}
             <source src="/videos/about-bg-org.webm" type="video/webm" />

@@ -230,7 +230,7 @@ const Missions = () => {
             </div>
 
             <div className="inline-flex justify-center gap-2.5 items-center relative flex-[0_0_auto]">
-              <p className="relative w-[587px] mt-[-1.00px] [font-family:'Inter-Regular',Helvetica] font-normal text-[#bbbbbb] text-base text-center tracking-[0] leading-[25.6px]">
+              <p className="relative w-full max-md:px-2 md:w-[587px] mt-[-1.00px] [font-family:'Inter-Regular',Helvetica] font-normal text-[#bbbbbb] text-base text-center tracking-[0] leading-[25.6px]">
                 From debris cleanup to thriving orbital infrastructure - explore
                 our Five-phase journey towards building a self-sustaining space
                 economy through recycling, manufacturing, and innovation.
@@ -263,7 +263,7 @@ const Missions = () => {
           </div>
 
           {/* RoadMap UL (Cards) */}
-          <ul className="roadmap-ul w-full relative flex flex-col gap-y-[80px] justify-start items-center max-w-[1200px] pr-5 sm:h-screen md:h-[510px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
+          <ul className="roadmap-ul w-full relative flex flex-col gap-y-[80px] justify-start items-center max-w-[1200px] max-md:w-[98%] md:pr-5 sm:h-screen md:h-[510px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
             {RoadMapDataList.map((eachCard, index) => (
               <RoadMapCard
                 key={eachCard.number}

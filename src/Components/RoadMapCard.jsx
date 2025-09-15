@@ -6,7 +6,7 @@ const RoadMapCard = ({ data, cardIndex }) => {
   return (
     <li
       className="roadmap-card max-w-6xl w-full relative md:sticky top-[20px] z-1 
-                 bg-black rounded-2xl 
+                 bg-black rounded-2xl max-md:border-1 border-[#efefef]
                  py-[20px] px-[25px] lg:p-[48px] 
                  flex max-md:flex-wrap flex-row justify-between items-center 
                 max-md:gap-4"
@@ -56,11 +56,11 @@ const RoadMapCard = ({ data, cardIndex }) => {
 
             <div className="space-y-2 mt-4">
               {data.missions?.map((mission, idx) => (
-                <div key={idx} className="flex flex-col gap-[20px]">
+                <div key={idx} className="flex flex-col md:gap-[20px]">
                   <h2 className="text-lg md:text-[18px] font-[500]">
                     {mission.title}
                   </h2>
-                  <ul className="list-disc list-inside indent-1 mt-2 space-y-1">
+                  <ul className="list-disc list-inside indent-1 md:mt-2 md:space-y-1">
                     {mission.points.map((point, i) => (
                       <li key={i} className="text-[14px]">
                         {point}

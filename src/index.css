@@ -251,7 +251,6 @@ header a:hover:not(.currentPageLink) {
 }
 
 .roadmap-card {
-  border: 0;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 .roadmap-card.active-card{
@@ -275,14 +274,22 @@ header a:hover:not(.currentPageLink) {
   min-height: 300px !important;
 }
 .products-li-box:nth-child(2) {
-  filter: brightness(0.5) contrast(1.1) !important;
+  filter: brightness(0.8) contrast(1.1) !important;
   /* background-blend-mode: overlay; */
+}
+.products-li-box:nth-child(2):hover {
+  filter: none;
+  mix-blend-mode: normal;
+  background-blend-mode: normal;
+  img{
+    mix-blend-mode: normal;
+  }
 }
 .products-li-box:nth-child(2) img {
   object-fit: contain !important;
   margin-right: 60px;
   max-width: 250px !important;
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 767px){ 
     /* max-width: 200px !important; */
     align-self: center;
     margin: auto;
