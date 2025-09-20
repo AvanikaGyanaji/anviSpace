@@ -17,7 +17,7 @@ export const RoadMapDataList = [
       },
       {
         title: "MISSION 1.2",
-        points: ["Capture And Deorbit Or Utilize The Debris - 2030"],
+        points: ["Capture And Deorbit The Debris - 2030"],
       },
     ],
   },
