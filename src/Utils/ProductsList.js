@@ -1,7 +1,7 @@
 export const productsList = [
   {
     id: "space-karkana",
-    title: "“The Rise of anvi From Lauch To Legacy-We Build For The Cosmos”",
+    title: "“The Rise of Anvi From Lauch To Legacy-We Build For The Cosmos”",
     img_url: "/logos/space-karkana-bg.png",
     exploreLabel: "",
     exploreLink: "/missions",
