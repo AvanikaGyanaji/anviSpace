@@ -184,8 +184,8 @@ const Missions = () => {
               and robotic capture, we enable safer orbits. This progresses into
               satellite servicing, in-orbit recycling, and large-scale
               manufacturing. Building on these capabilities, we advance toward
-              ISRU, space agriculture, and the creation of long-term
-              infrastructure and habitats to support humanity's future in space.
+              ISRU, and the creation of long-term infrastructure and habitats 
+              to support humanity's future in space.
             </p>
           </div>
 
