@@ -128,7 +128,7 @@ const Missions = () => {
           <p className="text-[16px] max-w-[820px] max-md:text-[14px] font-[400] leading-[24.61px] tracking-[-0.4px] font-[Inter] text-[#bbb] text-center px-4">
             From debris cleanup to in-orbit recycling, manufacturing, and
             scalable space habitats, we're building tomorrow's self-sustaining
-            space econ
+            space economy
           </p>
           <button
             id="explore-btn"
