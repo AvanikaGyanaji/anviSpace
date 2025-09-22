@@ -88,7 +88,7 @@ const ContactForm = ({ isHavingCv = true }) => {
             setFormValues((prev) => ({ ...prev, Name: e.target.value }))
           }
           required
-          className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+          className="w-full rounded-md font-[inter] bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
         />
       </label>
 
@@ -104,7 +104,7 @@ const ContactForm = ({ isHavingCv = true }) => {
             setFormValues((prev) => ({ ...prev, Email: e.target.value }))
           }
           required
-          className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
+          className="w-full rounded-md font-[inter] bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition"
         />
       </label>
 
@@ -122,7 +122,7 @@ const ContactForm = ({ isHavingCv = true }) => {
                 id="fileUpload"
                 name="file"
                 accept=".pdf,.doc,.docx"
-                className="hidden"
+                className="hidden font-[inter]"
                 onChange={handleFileChange}
               />
 
@@ -177,7 +177,7 @@ const ContactForm = ({ isHavingCv = true }) => {
           }
           rows="6"
           required
-          className="w-full rounded-md bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition resize-none"
+          className="w-full rounded-md font-[inter] bg-black bg-opacity-40 border border-gray-600 px-4 py-2 text-white placeholder-[#999] focus:outline-none focus:ring-1 focus:ring-cyan-400 transition resize-none"
         ></textarea>
       </label>
 

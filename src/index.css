@@ -104,41 +104,42 @@ header a:hover:not(.currentPageLink) {
 }
 
 .star-bg-1 {
+  transform: scale(0.5);
   opacity: 0.2;
   animation: starAnimation 200s linear infinite;
 }
 
 .star-bg-2 {
-  transform: scale(0.3);
+  transform: scale(0.5);
   opacity: 0.6;
   animation: starAnimation 300s linear infinite reverse;
 }
 
 .star-bg-3 {
-  transform: scale(0.2);
-  opacity: 0.4;
+  transform: scale(0.5);
+  opacity: 0.2;
   animation: starAnimation 350s linear infinite forwards;
 }
 
 .star-bg-4 {
-  transform: scale(0.4);
-  opacity: 0.3;
+  transform: scale(0.5);
+  opacity: 0.2;
   animation: starAnimation 400s linear infinite forwards;
 }
 
 @keyframes starAnimation {
   0% {
-    transform: rotate3d(0, 0, 1, 0deg) scale(1);
+    transform: rotate3d(0, 0, 1, 0deg) scale(0.5);
     opacity: inherit;
   }
 
   50% {
-    transform: rotate3d(0, 0, 1, 180deg) scale(1.4);
+    transform: rotate3d(0, 0, 1, 180deg) scale(0.6);
     opacity: 0.9;
   }
 
   100% {
-    transform: rotate3d(0, 0, 1, 360deg) scale(1);
+    transform: rotate3d(0, 0, 1, 360deg) scale(0.5);
     opacity: inherit;
   }
 }

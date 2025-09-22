@@ -73,7 +73,7 @@ const Home = () => {
         ref={starBoxRef}
         className="star-animate fixed top-0 left-0 w-[100%] h-[100%] aspect-square z-0 overflow-visible"
       >
-        <div
+        {/* <div
           className="star-animate-bg star-bg-1 left-10"
           style={{ animationDelay: 10 }}
         ></div>
@@ -88,7 +88,15 @@ const Home = () => {
         <div
           className="star-animate-bg star-bg-4 right-5 bottom-3"
           style={{ animationDelay: 10 }}
-        ></div>
+        ></div> */}
+        <div
+            className="star-animate-bg star-bg-1"
+            style={{ animationDelay: 10 }}
+          ></div>
+          <div
+            className="star-animate-bg star-bg-1 scale-150"
+            style={{ animationDelay: 10 }}
+          ></div>
       </div>
 
       {/* Home - Hero Section   */}
@@ -163,12 +171,14 @@ const Home = () => {
             About Us
           </h3>
           <p className="about-para text-[16px] font-[300] self-center text-shadow-2xs text-shadow-gray-950 font-[Inter] text-white text-center tracking-[0.1px] leading-[26px] max-w-[860px] mx-auto px-3">
-            Anvi Space aims to develop advanced space robotics and intelligent
+            {/* Anvi Space aims to develop advanced space robotics and intelligent
             satellite technologies, for safer, more sustainable orbital
             operations. From satellite with robotic arms for servicing and
             debris capture to modular, refillable satellites, our solutions
             extend mission lifetimes and reduce waste. Our vision is to enable a
-            self-reliant, sustainable space ecosystem for future generations.
+            self-reliant, sustainable space ecosystem for future generations. */}
+
+            Anvi Space is dedicated to developing advanced space robotics and intelligent satellite technologies that enable safer and more sustainable orbital operations. From satellites equipped with robotic arms for servicing and debris capture to modular, refillable platforms, our solutions are designed to extend mission lifetimes and minimize orbital waste. Our vision is to build a self-reliant, sustainable space ecosystem for future generations.
           </p>
         </div>
         {/* about bg black shade */}

@@ -20,13 +20,19 @@ const Missions = () => {
 
   useEffect(() => {
     let { pathname, hash, search } = location;
-
+    // console.log(pathname, hash);
+    if (pathname !== pagesLinksList.Missions && !hash){
+      window.scrollTo(0,0);
+      return;
+    }
+    // console.log("============")
     // normalize trailing slash
     const orgUrl = pathname;
     if (pathname !== "/" && pathname.endsWith("/")) {
       pathname = pathname.slice(0, -1);
     }
 
+    // console.log('orgUrl', orgUrl, pagesLinksList.Missions)
     if (orgUrl !== pagesLinksList.Missions) {
       const targetId = hash ? hash.replace("#", "") : "roadmap";
       const target = document.getElementById(targetId);
@@ -240,9 +246,9 @@ const Missions = () => {
         </div>
 
         {/* RoadMap Container */}
-        <div className="roadmap-cards-box flex justify-center align-middle">
+        <div className="roadmap-cards-box relative max-w-[1200px] m-auto flex justify-center align-middle">
           {/* Side Indicator - Left */}
-          <div className="w-8 flex flex-col justify-center items-center max-md:hidden">
+          <div className="w-8 flex flex-col absolute md:left-[2.5%] md:top-[100px] lg:top-[115px] z-10 justify-center items-center max-md:hidden">
             <div className="flex flex-col gap-3">
               {Array.from({ length: RoadMapDataList.length }).map(
                 (_, index) => {
@@ -252,8 +258,8 @@ const Missions = () => {
                       key={index}
                       className={`w-1 h-12 rounded-full transition-all duration-500 border ${
                         index === activeCardIndex
-                          ? "bg-white border-white shadow-lg shadow-white/20"
-                          : "bg-transparent border-gray-500"
+                          ? "bg-white shadow-lg shadow-white/20"
+                          : "bg-[#ffffff50]"
                       }`}
                     />
                   );
@@ -263,7 +269,7 @@ const Missions = () => {
           </div>
 
           {/* RoadMap UL (Cards) */}
-          <ul className="roadmap-ul w-full relative flex flex-col gap-y-[80px] justify-start items-center max-w-[1200px] max-md:w-[98%] md:pr-5 sm:h-screen md:h-[510px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
+          <ul className="roadmap-ul w-[96%] relative flex flex-col gap-y-[80px] justify-start items-center max-w-[1200px] sm:h-screen md:h-[510px] lg:h-[500px] overflow-y-auto my-12 font-[inter] text-white scroll-smooth">
             {RoadMapDataList.map((eachCard, index) => (
               <RoadMapCard
                 key={eachCard.number}
