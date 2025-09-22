@@ -201,7 +201,7 @@ const Home = () => {
                 key={idx}
                 ref={(el) => (productsRef.current[idx] = el)}
                 id="products-card"
-                className={`products-li-box cardAnim group w-full max-w-[1100px] max-md:flex-col-reverse md:max-h-[300px] m-auto flex justify-between max-md:justify-center max-md:align-middle align-top gap-5 md:gap-10 lg:gap-20 cursor-pointer rounded-[12px] transition-all duration-500 ${
+                className={`products-li-box cardAnim group w-full max-w-[1250px] max-md:flex-col-reverse md:max-h-[300px] m-auto flex justify-between max-md:justify-center max-md:align-middle align-top gap-5 md:gap-10 lg:gap-20 cursor-pointer rounded-[12px] transition-all duration-500 ${
                   product.id !== "ads-servicer"
                     ? "bg-blend-luminosity backdrop-blur-lg hover:bg-blend-normal px-3"
                     : ""

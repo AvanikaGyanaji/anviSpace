@@ -5,7 +5,7 @@ const RoadMapCard = ({ data, cardIndex }) => {
 
   return (
     <li
-      className="roadmap-card max-w-6xl w-full relative md:sticky top-[20px] z-1 
+      className="roadmap-card max-w-[1200px] w-full relative md:sticky top-[20px] z-1 
                  bg-black rounded-2xl max-md:border-1 border-[#efefef]
                  py-[20px] px-[25px] pl-[50px] lg:p-[48px] 
                  flex max-md:flex-wrap flex-row justify-between items-center 
