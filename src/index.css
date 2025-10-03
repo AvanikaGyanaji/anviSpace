@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+/* Custom Font Families From Files */
+@font-face {
+  font-family: 'YourFontName';
+  src: url('your_cdn_url/yourfont.woff2') format('woff2'),
+    url('your_cdn_url/yourfont.woff') format('woff');
+  /* Add other formats if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  background-color: #131313;
+  overflow-x: hidden;
+  font-family: 'Shinko sans', sans-serif;
+}
+
+body::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #555;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #333;
+}
+
+#root {
+  width: 100%;
+  /* max-width: 1400px; */
+  margin: auto;
+  background-color: #161616;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+}
+
+/* ====================================== */
+/* header */
+/* header{
+  position: fixed;
+} */
+header li,
+header nav+span a {
+  transition: all 0.2s 0s ease-in-out;
+  border-bottom: 2px solid transparent;
+}
+
+.currentPageLink {
+  border-color: #eee;
+}
+
+header li:hover:not(.currentPageLink),
+header a:hover:not(.currentPageLink) {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px #eee;
+}
+
+/* ========================== */
+/* FOOTER */
+
+
+
+/* ========================== */
+/* HOME */
+.explore-btn {
+  background-color: #00000060 !important;
+}
+
+.coming-soon-btn {
+  background-color: #000 !important;
+}
+
+.star-animate {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
+}
+
+.star-animate-bg {
+  background-image: url('/images/Star Animate.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star-bg-1 {
+  transform: scale(0.5);
+  opacity: 0.2;
+  animation: starAnimation 200s linear infinite;
+}
+
+.star-bg-2 {
+  transform: scale(0.5);
+  opacity: 0.6;
+  animation: starAnimation 300s linear infinite reverse;
+}
+
+.star-bg-3 {
+  transform: scale(0.5);
+  opacity: 0.2;
+  animation: starAnimation 350s linear infinite forwards;
+}
+
+.star-bg-4 {
+  transform: scale(0.5);
+  opacity: 0.2;
+  animation: starAnimation 400s linear infinite forwards;
+}
+
+@keyframes starAnimation {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg) scale(0.5);
+    opacity: inherit;
+  }
+
+  50% {
+    transform: rotate3d(0, 0, 1, 180deg) scale(0.6);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg) scale(0.5);
+    opacity: inherit;
+  }
+}
+
+/* ========================== */
+
+/* About Section */
+.about-box video {
+  background-image: url('/videos/about-bg.mp4');
+}
+
+/* ========================== */
+
+/* Mission Section */
+
+
+/* Contact Section  */
+.contact-section form {
+  padding: 50px !important;
+
+  .form-Bgimg {
+    background-image: url('/images/contact-formBg.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    filter: brightness(0.2);
+  }
+
+  &::before,
+  &::after {
+    padding: 3.2px !important;
+  }
+
+  label {
+    font-family: inter, 'sans-serif' !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+  }
+
+  input,
+  textarea {
+    padding-inline: 10px;
+    color: #999999;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: inter, sans-serif;
+    background-color: #050505 !important;
+    border: 0.5px solid #999999;
+    border-radius: 8px;
+  }
+}
+
+#contact-form {
+  button {
+    background-color: #FEFEFE;
+    box-shadow: 0px 0px 20px 0px #33BBFF4D;
+    color: #0F121A;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+
+/* Careers Page */
+.careers-apply-btn {
+  color: #FFF !important;
+  font-family: "Shinko Sans";
+  font-size: 18px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.44px;
+  border-radius: 6px !important;
+  border: 1.5px solid #111 !important;
+  background-color: #00000080 !important;
+  /* background: linear-gradient(270deg, #161616 0%, #121111 100%) !important; */
+  background: linear-gradient(270deg, #000 5%, #161616 90%) !important;
+  background-blend-mode: soft-light;
+}
+
+/* .careers-apply-btn::before, .careers-apply-btn::after{
+} */
+
+
+
+/* MISSIONS PAGE */
+#explore-btn,
+#explore-btn::before,
+#explore-btn::after {
+  animation-delay: 0s !important;
+}
+
+.about-space-btn {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+  text-transform: capitalize;
+  padding: 5px 15px !important;
+  border-radius: 5px !important;
+  color: #FFF !important;
+  font-family: Shinko Sans;
+}
+
+.roadmap-ul {
+  scrollbar-width: none;
+  scrollbar-color: #fff;
+}
+
+.roadmap-card {
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+.roadmap-card.active-card{
+  border: 1px solid #282828;
+  /* box-shadow: 0 0 10px rgba(40,40,40,0.3); */
+}
+
+
+/* Products Section Card */
+#products-card{
+  transition: filter 2s ease-in-out, transform 0.2s ease-in-out;
+}
+#products-card:hover{
+  /* border-radius: 0px; */
+  filter: none;
+  transform: scale(1.01);
+  mix-blend-mode: normal;
+  background-blend-mode: normal;
+}
+.products-li-box{
+  min-height: 300px !important;
+}
+.products-li-box:nth-child(2) {
+  filter: brightness(0.8) contrast(1.1) !important;
+  /* background-blend-mode: overlay; */
+}
+.products-li-box:nth-child(2):hover {
+  filter: none;
+  mix-blend-mode: normal;
+  background-blend-mode: normal;
+  img{
+    mix-blend-mode: normal;
+  }
+}
+.products-li-box:nth-child(2) img {
+  object-fit: contain !important;
+  margin-right: 60px;
+  max-width: 250px !important;
+  @media screen and (max-width: 767px){ 
+    /* max-width: 200px !important; */
+    align-self: center;
+    margin: auto;
+  }
+}
+
+.products-li-box:nth-child(3) {
+  background-color: rgb(8, 11, 13) !important;
+}

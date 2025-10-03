@@ -1,0 +1,143 @@
+/* ====================================== */
+.intro-web-container {
+  background-color: black;
+}
+
+.intro-web-box {
+  width: 100vw;
+  height: 100vh;
+  place-content: center;
+  /* background-color: #161616; */
+
+  /* background: linear-gradient(180deg, #161616 0%, rgba(22, 22, 22, 0.00) 50%, #161616 100%); */
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  .intro-web-Box1 {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    place-content: center;
+    overflow-y: hidden;
+
+    .tube-light-container {
+      width: 100%;
+      max-width: 400px !important;
+      height: 0.2px;
+      overflow-y: hidden;
+      position: relative;
+      border-radius: 50%;
+      background-color: #fff;
+      max-width: 90%;
+      padding-inline: 10px;
+      /* box-shadow: 0 -20px 120px 30px #fafafa63;
+      -webkit-box-shadow: 0 -20px 120px 30px #fafafa63;
+      -moz-box-shadow: 0 -20px 120px 30px #fafafa63; */
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      animation: intro-bg-light 6s ease-in-out 0.5s 1 normal forwards;
+    }
+  }
+
+  .intro-web-Box2 {
+    background-color: black;
+    position: sticky;
+    z-index: 1000;
+  }
+}
+
+.intro-web-box::after {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: Fade 5.5s ease-in-out 1s 1 normal forwards;
+  opacity: 1;
+  /* display: none; */
+}
+
+.intro-web-container {
+  overflow-y: hidden;
+}
+
+.intro-web-img img {
+  object-fit: contain;
+  max-width: 400px;
+  z-index: 900;
+  position: fixed;
+  filter: none;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: FadeSlideInLogo 4.8s ease-in-out 1s 1 forwards;
+  /* , IntroLogotoHeader 2.5s ease-in-out 5s 1 forwards; */
+}
+
+@keyframes intro-bg-light {
+  0% {
+    box-shadow: 0 -20px 120px 30px transparent;
+    -webkit-box-shadow: 0 -20px 120px 30px transparent;
+    -moz-box-shadow: 0 -20px 120px 30px transparent;
+    opacity: 1;
+  }
+  20% {
+    box-shadow: 0 -20px 120px 30px #fafafa90;
+    -webkit-box-shadow: 0 -20px 120px 30px #fafafa90;
+    -moz-box-shadow: 0 -20px 120px 30px #fafafa90;
+    opacity: 1;
+  }
+  100% {
+    box-shadow: none;
+    box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    opacity: 0;
+  }
+}
+
+@keyframes Fade {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes IntroBg {
+  0% {
+    background: linear-gradient(to top, #000, #001);
+    opacity: 1;
+  }
+
+  100% {
+    background: linear-gradient(to top, #151515, #161616);
+    opacity: 0;
+  }
+}
+
+@keyframes FadeSlideInLogo {
+  0% {
+    transform: translate(0vw, 5vh);
+    opacity: 1;
+  }
+
+  80% {
+    /* transform: translate(0vw, -30vh); */
+    transform: translate(0vw, -200px);
+    max-width: 400px;
+    opacity: 1;
+  }
+
+  98% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-42vw, -58vh);
+    max-width: 120px;
+    opacity: 0;
+  }
+}
