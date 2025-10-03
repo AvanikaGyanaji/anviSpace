@@ -178,7 +178,9 @@ const Missions = () => {
                 </div>
               </div>
 
-              <div className="absolute w-[399px] h-[101px] top-[50px] left-0 font-[Instrument Sans] font-medium text-white text-[40px] tracking-[-1.00px] leading-[52px]">
+              <div className="absolute w-[399px] h-[101px] top-[50px] left-0 font-[Instrument Sans] font-medium text-white text-[40px] tracking-[-1.00px] leading-[52px]"
+                style={{fontFamily: 'Instrument Sans'}}
+              >
                 About <br />
                 Anvi's Galactica
               </div>
